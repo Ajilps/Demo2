@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP Smooth Scrolling Page</title>
+  <!-- sections -->
+  <style>
+    /* 1. Basic CSS Reset & Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      background-color: #0c0c0c;
+      color: #f0f0f0;
+      overflow-x: hidden;
+      padding-top: 37px;
+      /* display: flex; */
+      /* justify-content: center; */
+
+      /* Prevent horizontal scrollbars from animations */
+    }
+
+
+    /* 3. Section Styling */
+    section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 50px;
+      /* min-height: 100vh; */
+      /* Crucial: Each section is full viewport height */
+      /* min-width: 100vw; */
+      /* max-width: 1200px; */
+
+
+      /* border-bottom: 1px solid #333; */
+    }
+
+    /* section h2 {
+      font-size: 5vw;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      text-align: center;
+    } */
+
+    /* Unique background for each section to see the effect clearly */
+    #section1 {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background-color: #1d2b3a;
+    }
+
+    #section2 {
+      background-color: #000000;
+      /* min-width: 100%; */
+    }
+
+    #section3 {
+      /* services */
+      /* background-color: #2b3a1d; */
+      /* max-width: 1200px; */
+
+      justify-self: center;
+    }
+
+    #section4 {
+      /* background-color: #1d3a33; */
+    }
+
+    #section5 {
+      /* background-color: #3a2b1d; */
+    }
+
+    /* 4. Styling for Animation Elements in Section 3 */
+    .box-container {
+      display: flex;
+      gap: 20px;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #00ff99;
+      border-radius: 10px;
+    }
+  </style>
+  <!-- nav -->
+  <style>
+    /* nav */
+
+
+    /* For accessibility: visually hide text but keep it for screen readers */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Main navbar container */
+    .navbar {
+      background-color: #00090b;
+      padding: 0 20px;
+      position: fixed;
+      /* Fixes the navbar to the top of the viewport */
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+
+      /* Ensures the navbar stays on top of other content */
+    }
+
+    .navbar-fade-in {
+      animation: blurIn .1s ease-out forwards;
+      animation-duration: 350ms;
+    }
+
+    /* Define the animation */
+    @keyframes blurIn {
+      0% {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+      }
+    }
+
+
+
+    /* Apply animation to the element */
+
+
+    .navbar-scrolled {
+      /* 111516 - 11535e  -  111516 */
+      background: linear-gradient(45deg, #111516, #11535e, #111516);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      border-radius: 50px;
+      animation: blurIn 1.5s ease-out forwards;
+      /* animation: blurOut 1.5s ease-out forwards; */
+
+      opacity: 0;
+    }
+
+    /* Inner container for alignment */
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+    }
+
+    /* Logo styling */
+    .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* Desktop navigation links list */
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    /* Individual desktop navigation links */
+    .nav-links a {
+      color: #40e0ff;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    .nav-links a:hover {
+      background-color: #555;
+    }
+
+    /* Burger icon container (using a button for accessibility) */
+    button.burger {
+      display: none;
+      /* Hidden on desktop */
+      flex-direction: column;
+      cursor: pointer;
+      padding: 5px;
+      /* Reset default button styles */
+      border: none;
+      background: transparent;
+    }
+
+    /* Lines inside the burger icon */
+    .burger-line {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+
+    /* Animation for burger icon when active (becomes an 'X') */
+    .burger.active .burger-line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .burger.active .burger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .burger.active .burger-line:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    /* Mobile menu container (hidden on desktop) */
+    .mobile-menu {
+      display: none;
+      /* Initially not visible on mobile either */
+      background-color: #333;
+      position: absolute;
+      top: 100%;
+      /* Positioned right below the navbar */
+      left: 0;
+      right: 0;
+      max-height: 0;
+      /* Used for the slide-down transition */
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    /* Style for the mobile menu when it's active (visible) */
+    .mobile-menu.active {
+      max-height: 300px;
+      /* Animate to this height to reveal the menu */
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      padding: 20px;
+    }
+
+    /* Links inside the mobile menu */
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 15px 0;
+      border-bottom: 1px solid #555;
+      transition: background-color 0.3s;
+    }
+
+    .mobile-menu a:hover {
+      background-color: #555;
+      padding-left: 10px;
+    }
+
+    /* --- Page Content Styles (for demonstration) --- */
+    .content {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .content h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+
+    /* --- Media Queries for Responsiveness --- */
+
+    /* Tablet styles (1024px and below) */
+    @media (max-width: 1024px) {
+      .nav-links {
+        gap: 20px;
+      }
+
+      .navbar {
+        padding: 0 15px;
+      }
+    }
+
+    /* Mobile styles (768px and below) */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        /* Hide desktop links */
+      }
+
+      button.burger {
+        display: flex;
+        /* Show burger icon */
+      }
+
+      .mobile-menu {
+        display: block;
+        /* Allow mobile menu to be shown */
+      }
+
+      .navbar {
+        padding: 0 15px;
+      }
+    }
+
+    /* Small mobile styles (480px and below) */
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 0 10px;
+      }
+
+      .nav-container {
+        height: 50px;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      /* Adjust body padding for the smaller navbar height */
+      /* body {
+        padding-top: 60px;
+      } */
+
+      /* .content {
+        padding: 20px 15px;
+      } */
+    }
+  </style>
+  <link rel="stylesheet" href="./backToTop.css">
+  <link rel="stylesheet" href="./about.css">
+  <link rel="stylesheet" href="./Services.css">
+  <link rel="stylesheet" href="./timeline.css">
+  <link rel="stylesheet" href="./slide1.css">
+  <link rel="stylesheet" href="./brandSlide.css">
+  <link rel="stylesheet" href="./celebritySlide.css">
+  <link rel="stylesheet" href="./feedBack.css">
+  <link rel="stylesheet" href="./contactForm.css">
+  <link rel="stylesheet" href="./footer.css">
+
+  <style>
+    /* background for hero section  */
+    #section1 {
+
+      /* background-color: rgb(0, 238, 255); */
+      background-image: url("../svg/background.svg");
+
+
+      background-repeat: no-repeat;
+      /* background-attachment: fixed; */
+      background-size: cover;
+
+
+    }
+
+    #mask {
+      position: absolute;
+      min-width: 100%;
+      min-height: 100vh;
+
+      /* background: linear-gradient(0deg, rgba(2, 2, 2, 0.658), #00000094, #ffffff00, rgba(255, 255, 255, 0), #000000b6, rgba(0, 0, 0, 0.801)); */
+
+
+      z-index: 1;
+    }
+
+    /* @media (max-width: 768px) {} */
+  </style>
+
+  <style>
+    /* nav logo animation on scroll */
+    .nav-logo {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 3s cubic-bezier(0.65, 0.05, 0.36, 1);
+    }
+
+    .nav-logo.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .nav-logo .logo-text {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #c0c0c0;
+    }
+
+    .nav-logo .logo-subtitle {
+      font-size: 0.9rem;
+      color: #40e0ff;
+      margin-top: -5px;
+    }
+  </style>
+
+  <style>
+    /* hide the main log on scroll */
+    .center-logo {
+      margin-bottom: 50px;
+      transition: all 2.8s ease-in-out;
+    }
+
+    .center-logo.hidden {
+      opacity: 0;
+      transform: translateY(-100px) scale(0.8);
+    }
+
+    .logo-main {
+      display: flex;
+      justify-content: center;
+
+    }
+  </style>
+
+  <style>
+    /* Let's talc button */
+    .cta-button {
+      padding: 12px 24px;
+      border: 2px solid #40e0d0;
+      border-radius: 30px;
+      color: #40e0d0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      margin-left: auto;
+      margin-right: 32px;
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: #40e0d0;
+      transition: left 0.3s ease;
+      z-index: -1;
+    }
+
+    .cta-button:hover {
+      color: #0a1f1c;
+
+      background: #35c5b5;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(64, 224, 208, 0.4);
+
+    }
+
+    .cta-button:hover::before {
+      left: 0;
+    }
+
+    @media (max-width : 768px) {}
+
+    @media (max-width : 480px) {}
+  </style>
+
+</head>
+
+<body>
+
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo" id="navLogo">
+        <div class="logo-text"><img src="../svg/iconWithShado.svg" width="50px" alt=""></div>
+
+      </div>
+      <!-- <a href="#" class="logo">Logo</a> -->
+
+      <ul class="nav-links">
+        <li><a href="#section1">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#section3">Services</a></li>
+        <li><a href="#section4">Our approach</a></li>
+
+      </ul>
+      <a href="#section9" class="cta-button">LET'S TALK</a>
+      <!-- Burger button is now semantically correct and accessible -->
+      <button class="burger" aria-controls="mobile-menu" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+      </button>
+    </div>
+
+    <!-- The id="mobile-menu" links it to the button's aria-controls -->
+    <div class="mobile-menu" id="mobile-menu">
+      <ul>
+        <li><a href="#section1">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#section3">Services</a></li>
+        <li><a href="#section4">Our approach</a></li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Back to Top Button -->
+  <div id="backToTop" class="back-to-top" title="Back to top"></div>
+
+  <!-- Main Content Wrapper -->
+  <main>
+    <section id="section1">
+      <div id="back-image-container">
+        <!-- <img id="background-image" src="../svg/background.svg" alt=""> -->
+
+      </div>
+      <!-- <div id="mask">
+
+      </div> -->
+
+
+      <main class="main-content">
+        <div class="center-logo" id="centerLogo">
+          <div class="logo-main"><img src="../svg/iconWithShado.svg" width="150px" alt=""></div>
+          <div class="logo-subtitle-main"><img src="../svg/newBrandName.svg" width="100%" alt=""></div>
+
+        </div>
+      </main>
+
+    </section>
+
+    <!-- <section id="section2"> -->
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="about-container">
+        <div class="section-header">ABOUT US THE AGENCY</div>
+
+        <!-- Main About Content -->
+        <div class="about-content">
+          <div class="about-text-block">
+            <div class="company-name">ADKULTURE</div>
+            <div class="about-description">
+              "We believe in the power of stories, stars, and strategy. We specialize in bringing creative visions to
+              life
+              across every platform."
+            </div>
+          </div>
+
+          <div class="avatar-container">
+            <div class="avatar-image">
+              <div class="avatar-face"><img src="../svg/aboutimg1.svg" alt=""> </div>
+              <div class="geometric-overlay"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detailed Description -->
+        <div class="detailed-description">
+          <div class="character-avatar">
+            <!-- <div class="character"> -->
+            <img src="../svg/aboutImg2.svg" alt="">
+            <!-- <div class="floating-elements"></div>
+              <div class="floating-elements"></div>
+              <div class="floating-elements"></div> -->
+            <!-- </div> -->
+          </div>
+
+          <div class="detailed-text">
+            <p>At Adkulture, we specialise in celebrity management, influencer marketing, event production, and
+              creative
+              advertising solutions tailored to elevate your brand's visibility and engagement. Our team combines
+              cutting-edge strategy with hands-on execution to ensure performance-oriented campaigns that deliver
+              measurable ROI.</p>
+
+            <p>Whether it's crafting viral digital content, executing large-scale branding campaigns, or managing top
+              influencers across South India, Adkulture is your trusted partner in building compelling brand stories
+              that
+              convert.</p>
+
+            <div class="read-more-btn">READ MORE</div>
+          </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-container">
+          <div class="stat-item">
+            <div class="stat-number" data-target="1500">0+</div>
+            <div class="stat-label">Influencer Network</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="100">0+</div>
+            <div class="stat-label">Brands Served</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- </section> -->
+
+    <!-- <section > -->
+    <section class="services-section" id="section3">
+      <header class="services-header">
+        <h2>OUR SERVICES</h2>
+        <p>Customized solution for your business growth</p>
+      </header>
+
+      <ul class="services-list">
+        <!-- Service Item 1: Influencer Marketing -->
+        <li class="service-item active">
+          <button class="nav-button active-button-desktop" data-target="influencer">INFLUENCER MARKETING</button>
+          <div class="service-card-wrapper">
+            <div class="service-card">
+              <div class="service-card-content">
+                <h4>INFLUENCER MARKETING</h4>
+                <img src="../svg/influencerMarketing.svg" alt="3D character vlogging">
+                <ul class="service-card-features">
+                  <li>LIFESTYLE & FASHION</li>
+                  <li>TECH & GAMING</li>
+                  <li>AUTHENTIC CAMPAIGNS</li>
+                </ul>
+              </div>
+              <a href="#influencer-marketing" class="know-more-button">KNOW MORE</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Service Item 2: Celebrity Management -->
+        <li class="service-item">
+          <button class="nav-button" data-target="celebrity">CELEBRITY MANAGEMENT</button>
+          <div class="service-card-wrapper">
+            <div class="service-card">
+              <div class="service-card-content">
+                <h4>CELEBRITY MANAGEMENT</h4>
+                <img src="../svg/celebrityManagement.svg" alt="3D character looking like a star">
+                <ul class="service-card-features">
+                  <li>TALENT REPRESENTATION</li>
+                  <li>BRAND ENDORSEMENTS</li>
+                  <li>PUBLIC RELATIONS</li>
+                </ul>
+              </div>
+              <a href="#celebrity-management" class="know-more-button">KNOW MORE</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Service Item 3: Event Management -->
+        <li class="service-item">
+          <button class="nav-button" data-target="event">EVENT MANAGEMENT</button>
+          <div class="service-card-wrapper">
+            <div class="service-card">
+              <div class="service-card-content">
+                <h4>EVENT MANAGEMENT</h4>
+                <img src="../svg/eventManagement.svg" width="200px" alt="3D character with a checklist">
+                <ul class="service-card-features">
+                  <li>PRODUCT LAUNCHES</li>
+                  <li>CORPORATE GATHERINGS</li>
+                  <li>LIVE EXPERIENCES</li>
+                </ul>
+              </div>
+              <a href="#event-management" class="know-more-button">KNOW MORE</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Service Item 4: Ad Production -->
+        <li class="service-item">
+          <button class="nav-button" data-target="ad">AD PRODUCTION</button>
+          <div class="service-card-wrapper">
+            <div class="service-card">
+              <div class="service-card-content">
+                <h4>AD PRODUCTION</h4>
+                <img src="../svg/adProduction.svg" alt="3D character with a film camera">
+                <ul class="service-card-features">
+                  <li>CONCEPT & SCRIPTING</li>
+                  <li>VIDEO SHOOTS</li>
+                  <li>POST-PRODUCTION</li>
+                </ul>
+              </div>
+              <a href="#ad-production" class="know-more-button">KNOW MORE</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <!-- </section> -->
+
+    <!-- <section id="section4"> -->
+    <section id="section4" class="timeline-section">
+      <div class="container">
+        <div class="header">
+          <h1>OUR TIMELINE</h1>
+          <p>At Adlculture, we follow a structured timeline process to ensure smooth execution and timely delivery.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-path"></div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>BRAINSTORM</h3>
+              <p>Sparking fresh ideas that align with your brand vision</p>
+              <p class="subtitle">Creative ideation and conceptualization phase</p>
+            </div>
+            <div class="timeline-icon"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>CONTENT PLANNING</h3>
+              <p>Structuring creative concepts into actionable plans</p>
+              <p class="subtitle">Detailed content strategy and planning phase</p>
+            </div>
+            <div class="timeline-icon"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>STRATEGY</h3>
+              <p>Crafting a focused roadmap to reach your goals effectively</p>
+              <p class="subtitle">Setting our future direction and strategies for achieving them</p>
+            </div>
+            <div class="timeline-icon"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>LAUNCH & LIVE</h3>
+              <p>Bringing ideas to life with precision and impact</p>
+              <p class="subtitle">Execution and delivery phase with continuous monitoring</p>
+            </div>
+            <div class="timeline-icon"></div>
+          </div>
+        </div>
+
+        <div class="dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- </section> -->
+
+    <!-- <section id="section5"> -->
+
+    <section class="slider-section">
+      <h2 class="slider-title">SOCIALS</h2>
+      <div class="slider-container">
+        <div class="slider-wrapper">
+          <div class="slide">
+            <div class="social-card">
+              <div class="slidertext">
+                <h3>Welcome</h3>
+              </div>
+              <div class="content">
+                <p>Welcome to our custom 3D card slider! This interactive experience is built with pure CSS and
+                  JavaScript, featuring smooth animations and responsive design without any external dependencies.</p>
+                <a href="#">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide">
+            <div class="social-card">
+              <div class="slidertext">
+                <h3>Design</h3>
+              </div>
+              <div class="content">
+                <p>Beautiful gradient backgrounds and modern design elements create an engaging visual experience. Each
+                  card features unique styling with smooth hover effects and professional typography.</p>
+                <a href="#">View Gallery</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide">
+            <div class="social-card">
+              <div class="slidertext">
+                <h3>Mobile</h3>
+              </div>
+              <div class="content">
+                <p>Fully responsive design ensures perfect functionality across all devices. Touch gestures, adaptive
+                  sizing, and optimized performance deliver an exceptional mobile experience.</p>
+                <a href="#">Try Mobile</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide">
+            <div class="social-card">
+              <div class="slidertext">
+                <h3>Interactive</h3>
+              </div>
+              <div class="content">
+                <p>Engaging 3D coverflow effects with autoplay functionality. Pause on hover, swipe navigation, and
+                  smooth transitions create an immersive user experience.</p>
+                <a href="#">Explore</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide">
+            <div class="social-card">
+              <div class="slidertext">
+                <h3>Features</h3>
+              </div>
+              <div class="content">
+                <p>Advanced features include loop functionality, pagination controls, and breakpoint-specific settings.
+                  Customizable timing and effects adapt to different screen sizes.</p>
+                <a href="#">See Features</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide">
+            <div class="social-card">
+              <div class="slidertext">
+                <h3>Performance</h3>
+              </div>
+              <div class="content">
+                <p>Optimized for performance with hardware acceleration and efficient rendering. Smooth 60fps animations
+                  ensure fluid motion across all supported devices.</p>
+                <a href="#">Check Speed</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide">
+            <div class="social-card">
+              <div class="slidertext">
+                <h3>Accessible</h3>
+              </div>
+              <div class="content">
+                <p>Built with accessibility in mind, featuring keyboard navigation, screen reader support, and proper
+                  focus management. Inclusive design for all users.</p>
+                <a href="#">Accessibility</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide">
+            <div class="social-card">
+              <div class="slidertext">
+                <h3>Custom</h3>
+              </div>
+              <div class="content">
+                <p>Easy to customize with CSS variables and configuration options. Modify colors, timing, effects, and
+                  layouts to match your brand and requirements.</p>
+                <a href="#">Customize</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide">
+            <div class="social-card">
+              <div class="slidertext">
+                <h3>Modern</h3>
+              </div>
+              <div class="content">
+                <p>Built with cutting-edge web technologies including CSS transforms, modern JavaScript, and responsive
+                  design principles. Future-proof and lightweight solution.</p>
+                <a href="#">Get Started</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="nav-button prev" onclick="slider.prev()">‹</button>
+        <button class="nav-button next" onclick="slider.next()">›</button>
+
+        <div class="pagination"></div>
+      </div>
+    </section>
+    <!-- </section> -->
+
+    <section id="section6">
+      <div class="brand-container">
+        <h1 class="title">Our Brands</h1>
+
+        <div class="brands-slider">
+          <div class="brands-track">
+            <!-- First set of brands -->
+            <div class="brand-item">
+              <div class="brand-logo intel">intel</div>
+            </div>
+            <div class="brand-item">
+              <div class="brand-logo vray">V-RAY</div>
+            </div>
+            <div class="brand-item">
+              <div class="brand-logo bridgestone">BRIDGESTONE</div>
+            </div>
+            <div class="brand-item">
+              <div class="brand-logo visa">VISA</div>
+            </div>
+
+            <!-- Duplicate set for seamless loop -->
+            <div class="brand-item">
+              <div class="brand-logo intel">intel</div>
+            </div>
+            <div class="brand-item">
+              <div class="brand-logo vray">V-RAY</div>
+            </div>
+            <div class="brand-item">
+              <div class="brand-logo bridgestone">BRIDGESTONE</div>
+            </div>
+            <div class="brand-item">
+              <div class="brand-logo visa">VISA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- celebrity  -->
+    <!-- <section id="section7"> -->
+    <!-- <section class="slider-section"> -->
+    <div class="container">
+      <h2 class="slider-title">Celebrity Collaboration</h2>
+      <div class="slider">
+        <div class="list">
+          <div class="item" style="--position: 1">
+            <div class="card" style="background: linear-gradient(to right, #ff7e5f, #feb47b)">
+              <p>HELLO THERE</p>
+              <p>Am Ashwin.A</p>
+            </div>
+          </div>
+          <div class="item" style="--position: 2">
+            <div class="card" style="background: linear-gradient(to right, #6a11cb, #2575fc)">
+              <img src="../svg/celebrityManagement.svg" width="100px" alt="">
+            </div>
+          </div>
+          <div class="item" style="--position: 3">
+            <div class="card" style="background: linear-gradient(to right, #00c6ff, #0072ff)">
+              <p>Replace cards with images</p>
+              <p>for a image slider</p>
+            </div>
+          </div>
+          <div class="item" style="--position: 4">
+            <div class="card" style="background: linear-gradient(to right, #ff512f, #dd2476)">
+              <p>Html css only</p>
+              <p>Hover to stop the slides</p>
+            </div>
+          </div>
+          <div class="item" style="--position: 5">
+            <div class="card" style="background: linear-gradient(to right, #ffb6c1, #ff69b4)">
+              <p>Responsive Design</p>
+              <p>Works on all devices</p>
+            </div>
+          </div>
+          <div class="item" style="--position: 6">
+            <div class="card" style="background: linear-gradient(to right, #ff9a8b, #ffc3a0)">
+              <p>Smooth Animation</p>
+              <p>CSS powered transitions</p>
+            </div>
+          </div>
+          <div class="item" style="--position: 7">
+            <div class="card" style="background: linear-gradient(to right, #a1c4fd, #c2e9fb)">
+              <p>Modern Design</p>
+              <p>Beautiful gradients</p>
+            </div>
+          </div>
+          <div class="item" style="--position: 8">
+            <div class="card" style="background: linear-gradient(to right, #fbc2eb, #a18cd1)">
+              <p>Interactive</p>
+              <p>Hover to pause animation</p>
+            </div>
+          </div>
+          <div class="item" style="--position: 9">
+            <div class="card" style="background: linear-gradient(to right, #84fab0, #8fd3f4)">
+              <p>Customizable</p>
+              <p>Easy to modify and use</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- </section> -->
+    <!-- </section> -->
+
+    <!-- feedBack  -->
+    <section id="section8">
+      <div class="feedback-container">
+        <div class="feedback-content">
+          <div class="feedback-title-section">
+            <h2 class="feedback-title">What Our<br>Clients Say</h2>
+          </div>
+
+          <div class="feedback-testimonial-container">
+            <div class="feedback-card active">
+              <div class="feedback-header">
+                <div class="feedback-avatar">JD</div>
+                <div class="feedback-client-info">
+                  <h3>John Davidson</h3>
+                  <p>CEO, TechCorp</p>
+                </div>
+              </div>
+              <div class="feedback-designation">Outstanding Service</div>
+              <div class="feedback-text">
+                "Working with this team has been an absolute game-changer for our business. Their attention to detail
+                and
+                innovative approach exceeded all our expectations. The results speak for themselves."
+              </div>
+            </div>
+
+            <div class="feedback-card">
+              <div class="feedback-header">
+                <div class="feedback-avatar">SM</div>
+                <div class="feedback-client-info">
+                  <h3>Sarah Miller</h3>
+                  <p>Marketing Director, InnovateLab</p>
+                </div>
+              </div>
+              <div class="feedback-designation">Exceptional Results</div>
+              <div class="feedback-text">
+                "The level of professionalism and creativity they brought to our project was remarkable. They
+                transformed
+                our vision into reality and delivered beyond what we thought was possible."
+              </div>
+            </div>
+
+            <div class="feedback-card">
+              <div class="feedback-header">
+                <div class="feedback-avatar">RA</div>
+                <div class="feedback-client-info">
+                  <h3>Robert Anderson</h3>
+                  <p>Founder, StartupVenture</p>
+                </div>
+              </div>
+              <div class="feedback-designation">Highly Recommended</div>
+              <div class="feedback-text">
+                "From start to finish, the experience was seamless. Their expertise and dedication to quality made all
+                the
+                difference. I wouldn't hesitate to work with them again."
+              </div>
+            </div>
+
+            <div class="feedback-navigation">
+              <button class="feedback-nav-btn" id="feedbackPrevBtn">‹</button>
+              <button class="feedback-nav-btn" id="feedbackNextBtn">›</button>
+            </div>
+
+            <div class="feedback-dots">
+              <span class="feedback-dot active" onclick="currentFeedbackSlide(1)"></span>
+              <span class="feedback-dot" onclick="currentFeedbackSlide(2)"></span>
+              <span class="feedback-dot" onclick="currentFeedbackSlide(3)"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact Form -->
+    <section id="section9">
+      <div class="contact-form-container" id="contactFormContainer">
+        <h2 class="form-header" id="formHeader">Ready to discuss your project with us?</h2>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-group" id="fullNameGroup">
+            <input type="text" class="form-input" id="fullNameInput" name="fullName" placeholder="Full Name" required>
+          </div>
+
+          <div class="form-group" id="emailGroup">
+            <input type="email" class="form-input" id="emailInput" name="email" placeholder="E-mail" required>
+          </div>
+
+          <div class="form-group" id="companyGroup">
+            <input type="text" class="form-input" id="companyInput" name="company" placeholder="Company">
+          </div>
+
+          <div class="form-group" id="projectGroup">
+            <input type="text" class="form-input" id="projectInput" name="project" placeholder="Project" required>
+          </div>
+
+          <button type="submit" class="submit-button" id="submitButton">
+            Send a Message
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <!-- Footer Section -->
+  <footer class="footer" id="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <div class="footer-logo">
+          <!-- Replace with your actual logo image -->
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMTUwIDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8dGV4dCB4PSI1IiB5PSI0MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iMzAwIiBmaWxsPSIjMDBiY2Q0Ij5hSy48L3RleHQ+Cjx0ZXh0IHg9IjUiIHk9IjYwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSIzMDAiIGZpbGw9IiM4ODgiPmFka3VsdHVyZTwvdGV4dD4KPC9zdmc+"
+            alt="adkulture logo">
+        </div>
+
+        <div class="footer-cta">
+          <h2>Let's start working together</h2>
+          <div class="footer-email">
+            <span>✉</span>
+            <span>connect@adkulture.com</span>
+          </div>
+        </div>
+
+        <div class="footer-locations">
+          Kochi, Chennai, Bangalore, Hyderabad
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-nav">
+          <a href="#about">About us</a>
+          <a href="#contact">Contact</a>
+          <a href="#portfolio">Our Portfolio</a>
+          <a href="#gallery">Gallery</a>
+        </div>
+
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="LinkedIn">💼</a>
+        </div>
+
+        <div class="footer-contact">
+          <span>📞</span>
+          <span>9846841443</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © Copyright 2025 adkulcute | All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- 5. JAVASCRIPT LIBRARIES (GSAP, ScrollTrigger, and Lenis) -->
+  <!-- Using CDN for simplicity -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+  <script src="./footer.js"></script>
+
+
+
+
+  <script>
+    // 6. JAVASCRIPT LOGIC
+
+    // --- SETUP SMOOTH SCROLLING WITH LENIS ---
+    const lenis = new Lenis();
+
+    // Connect Lenis to GSAP's ticker
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+
+    // --- SETUP SMOOTH SCROLL FOR NAV LINKS ---
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        lenis.scrollTo(this.getAttribute('href'));
+        // console.log(this.getAttribute("href"));
+      });
+    });
+
+
+    // --- GSAP SCROLL ANIMATIONS ---
+
+    // ANIMATION 1: Fade-in for section titles and paragraphs
+    // const sections = document.querySelectorAll('section');
+
+    // sections.forEach(section => {
+    //   const heading = section.querySelector('h2');
+    //   const paragraph = section.querySelector('p');
+
+
+    //   gsap.from([heading, paragraph], {
+    //     y: 50,
+    //     opacity: 0,
+    //     duration: 1,
+    //     ease: 'power3.out',
+    //     stagger: 0.2,
+    //     scrollTrigger: {
+    //       trigger: section,
+    //       start: 'top 70%', // Animation starts when the top of the section is 70% from the top of the viewport
+    //       end: 'bottom 20%',
+    //       toggleActions: 'play none none reverse', // Play on enter, reverse on leave
+    //     }
+    //   });
+    // });
+    // Animation 1: Change the navbar's background on scroll.
+    ScrollTrigger.create({
+      trigger: "body",         // The trigger for this animation is the entire page.
+      start: "top -160px",      // Trigger when the user has scrolled 50px down from the top.
+      toggleClass: {           // Instead of animating a property, just toggle a CSS class.
+        className: "navbar-scrolled", // The class to add/remove.
+        targets: "nav"         // The element to apply the class to.
+      },
+    });
+
+
+
+
+  </script>
+
+  <script src="./backToTop.js"></script>
+  <!-- nav -->
+  <script>
+    // Use an IIFE (Immediately Invoked Function Expression) to avoid polluting the global scope
+    (() => {
+      // Query elements once and store them in constants
+      const burger = document.querySelector('.burger');
+      const mobileMenu = document.querySelector('#mobile-menu'); // Target by ID for specificity
+
+      // Function to toggle the menu
+      const toggleMenu = () => {
+        const isOpened = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', !isOpened);
+
+        burger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+      };
+
+      // Function to close the menu (can be used by other events)
+      const closeMenu = () => {
+        burger.setAttribute('aria-expanded', 'false');
+        burger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      };
+
+      // --- Event Listeners ---
+
+      // 1. Toggle menu when burger is clicked
+      burger.addEventListener('click', toggleMenu);
+
+      // 2. Use event delegation to close menu when a link inside it is clicked
+      mobileMenu.addEventListener('click', (event) => {
+        if (event.target.tagName === 'A') {
+          closeMenu();
+        }
+      });
+
+      // 3. Close menu when clicking outside of it
+      document.addEventListener('click', (event) => {
+        // Check if the click is outside the mobile menu and not on the burger itself
+        const isClickInsideMenu = mobileMenu.contains(event.target);
+        const isClickOnBurger = burger.contains(event.target);
+        if (!isClickInsideMenu && !isClickOnBurger && mobileMenu.classList.contains('active')) {
+          closeMenu();
+        }
+      });
+
+      // 4. Close the menu when the 'Escape' key is pressed
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobileMenu.classList.contains('active')) {
+          closeMenu();
+        }
+      });
+
+      // 5. Close menu on window resize if screen becomes larger
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+          closeMenu();
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    // Scroll animation for header and logos
+    lenis.on('scroll', () => {
+      const scrolled = window.pageYOffset;
+
+      const header = document.getElementById('header');
+      const centerLogo = document.getElementById('centerLogo');
+      const navLogo = document.getElementById('navLogo');
+
+      if (header) {
+        header.classList.toggle('scrolled', scrolled > 50);
+      }
+
+      if (centerLogo && navLogo) {
+        if (scrolled > 200) {
+          centerLogo.classList.add('hidden');
+          navLogo.classList.add('visible');
+        } else {
+          centerLogo.classList.remove('hidden');
+          navLogo.classList.remove('visible');
+        }
+      }
+    });
+  </script>
+
+  <!-- about counter -->
+  <script>
+    // Intersection Observer for triggering animations when stats come into view
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const statNumbers = entry.target.querySelectorAll('.stat-number');
+          statNumbers.forEach(stat => {
+            animateNumber(stat);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Function to animate counting
+    function animateNumber(element) {
+      const target = parseInt(element.getAttribute('data-target'));
+      const duration = 2000; // 2 seconds
+      const increment = target / (duration / 16); // 60fps
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        element.textContent = Math.floor(current) + '+';
+      }, 16);
+    }
+
+    // Start observing the stats container
+    document.addEventListener('DOMContentLoaded', () => {
+      const statsContainer = document.querySelector('.stats-container');
+      if (statsContainer) {
+        observer.observe(statsContainer);
+      }
+    });
+  </script>
+
+  <!-- services section -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const serviceItems = document.querySelectorAll('.service-item');
+      const navButtons = document.querySelectorAll('.nav-button');
+
+      serviceItems.forEach(item => {
+        const button = item.querySelector('.nav-button');
+
+        button.addEventListener('click', () => {
+          // Check if the clicked item is already active
+          const wasActive = item.classList.contains('active');
+
+          // First, deactivate all items
+          serviceItems.forEach(i => i.classList.remove('active'));
+          navButtons.forEach(b => b.classList.remove('active-button-desktop'));
+
+          // If the clicked item was not active, activate it.
+          // This creates the accordion behavior where clicking an active item closes it.
+          if (!wasActive) {
+            item.classList.add('active');
+            button.classList.add('active-button-desktop'); // Also add a class for desktop arrow
+          } else {
+            // Optional: if you want one item to always be open, 
+            // uncomment the two lines below to re-activate the first item
+            // serviceItems[0].classList.add('active');
+            // navButtons[0].classList.add('active-button-desktop');
+          }
+        });
+      });
+    });
+  </script>
+
+  <script src="./slide1.js"></script>
+  <script src="./feedBack.js"></script>
+  <script src="./contactForm.js"></script>
+
+</body>
+
+</html>

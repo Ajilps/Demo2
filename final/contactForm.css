@@ -1,0 +1,184 @@
+ .contact-form-container {
+      background: rgba(60, 60, 60, 0.95);
+      border-radius: 15px;
+      padding: 40px;
+      width: 100%;
+      max-width: 450px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-form-container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .form-header {
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    .contact-form {
+      position: relative;
+      z-index: 2;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 15px 0;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      font-size: 16px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+      border-bottom-color: #00bcd4;
+    }
+
+    .form-input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+    }
+
+    .form-input:focus::placeholder {
+      opacity: 0;
+    }
+
+    .submit-button {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 20px;
+    }
+
+    .submit-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 188, 212, 0.4);
+      background: linear-gradient(135deg, #0097a7 0%, #00838f 100%);
+    }
+
+    .submit-button:active {
+      transform: translateY(0);
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      .contact-form-container {
+        padding: 30px 25px;
+        margin: 10px;
+        max-width: 100%;
+      }
+
+      .form-header {
+        font-size: 16px;
+        margin-bottom: 25px;
+      }
+
+      .form-input {
+        padding: 12px 0;
+        font-size: 16px;
+        /* Prevents zoom on iOS */
+      }
+
+      .submit-button {
+        padding: 14px;
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 15px;
+      }
+
+      .contact-form-container {
+        padding: 25px 20px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-input {
+        padding: 10px 0;
+        font-size: 16px;
+      }
+
+      .submit-button {
+        padding: 12px;
+        font-size: 14px;
+      }
+    }
+
+    /* Focus animations */
+    .form-input:focus {
+      animation: inputFocus 0.3s ease;
+    }
+
+    @keyframes inputFocus {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.02);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Loading state for button */
+    .submit-button.loading {
+      opacity: 0.8;
+      cursor: not-allowed;
+    }
+
+    .submit-button.loading::after {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spin 1s linear infinite;
+      margin-left: 10px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
