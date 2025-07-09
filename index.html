@@ -4,492 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GSAP Smooth Scrolling Page</title>
-  <!-- sections -->
-  <style>
-    /* 1. Basic CSS Reset & Styling */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <title>Adkulture</title>
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      background-color: #0c0c0c;
-      color: #f0f0f0;
-      overflow-x: hidden;
-      padding-top: 37px;
-      /* display: flex; */
-      /* justify-content: center; */
 
-      /* Prevent horizontal scrollbars from animations */
-    }
+  <link rel="stylesheet" href="./styles/common.css">
+  <link rel="stylesheet" href="./styles/topNav.css">
+  <link rel="stylesheet" href="./styles/heroSection.css">
+  <link rel="stylesheet" href="./styles/backToTop.css">
+  <link rel="stylesheet" href="./styles/about.css">
+  <link rel="stylesheet" href="./styles/Services.css">
+  <link rel="stylesheet" href="./styles/timeline.css">
+  <link rel="stylesheet" href="./styles/socialSlider.css">
+  <link rel="stylesheet" href="./styles/brandSlide.css">
+  <link rel="stylesheet" href="./styles/celebritySlide.css">
+  <link rel="stylesheet" href="./styles/feedBack.css">
+  <link rel="stylesheet" href="./styles/contactForm.css">
+  <link rel="stylesheet" href="./styles/footer.css">
 
 
-    /* 3. Section Styling */
-    section {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-bottom: 50px;
-      /* min-height: 100vh; */
-      /* Crucial: Each section is full viewport height */
-      /* min-width: 100vw; */
-      /* max-width: 1200px; */
 
 
-      /* border-bottom: 1px solid #333; */
-    }
 
-    /* section h2 {
-      font-size: 5vw;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    section p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      text-align: center;
-    } */
-
-    /* Unique background for each section to see the effect clearly */
-    #section1 {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      background-color: #1d2b3a;
-    }
-
-    #section2 {
-      background-color: #000000;
-      /* min-width: 100%; */
-    }
-
-    #section3 {
-      /* services */
-      /* background-color: #2b3a1d; */
-      /* max-width: 1200px; */
-
-      justify-self: center;
-    }
-
-    #section4 {
-      /* background-color: #1d3a33; */
-    }
-
-    #section5 {
-      /* background-color: #3a2b1d; */
-    }
-
-    /* 4. Styling for Animation Elements in Section 3 */
-    .box-container {
-      display: flex;
-      gap: 20px;
-    }
-
-    .box {
-      width: 100px;
-      height: 100px;
-      background-color: #00ff99;
-      border-radius: 10px;
-    }
-  </style>
-  <!-- nav -->
-  <style>
-    /* nav */
-
-
-    /* For accessibility: visually hide text but keep it for screen readers */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border-width: 0;
-    }
-
-    /* Main navbar container */
-    .navbar {
-      background-color: #00090b;
-      padding: 0 20px;
-      position: fixed;
-      /* Fixes the navbar to the top of the viewport */
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-
-      /* Ensures the navbar stays on top of other content */
-    }
-
-    .navbar-fade-in {
-      animation: blurIn .1s ease-out forwards;
-      animation-duration: 350ms;
-    }
-
-    /* Define the animation */
-    @keyframes blurIn {
-      0% {
-        opacity: 0;
-        filter: blur(10px);
-        transform: translateY(20px);
-      }
-
-      100% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateY(0);
-      }
-    }
-
-
-
-    /* Apply animation to the element */
-
-
-    .navbar-scrolled {
-      /* 111516 - 11535e  -  111516 */
-      background: linear-gradient(45deg, #111516, #11535e, #111516);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-      border-radius: 50px;
-      animation: blurIn 1.5s ease-out forwards;
-      /* animation: blurOut 1.5s ease-out forwards; */
-
-      opacity: 0;
-    }
-
-    /* Inner container for alignment */
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 60px;
-    }
-
-    /* Logo styling */
-    .logo {
-      color: white;
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    /* Desktop navigation links list */
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 30px;
-    }
-
-    /* Individual desktop navigation links */
-    .nav-links a {
-      color: #40e0ff;
-      text-decoration: none;
-      padding: 10px 15px;
-      border-radius: 4px;
-      transition: background-color 0.3s;
-    }
-
-    .nav-links a:hover {
-      background-color: #555;
-    }
-
-    /* Burger icon container (using a button for accessibility) */
-    button.burger {
-      display: none;
-      /* Hidden on desktop */
-      flex-direction: column;
-      cursor: pointer;
-      padding: 5px;
-      /* Reset default button styles */
-      border: none;
-      background: transparent;
-    }
-
-    /* Lines inside the burger icon */
-    .burger-line {
-      width: 25px;
-      height: 3px;
-      background-color: white;
-      margin: 3px 0;
-      transition: 0.3s;
-    }
-
-    /* Animation for burger icon when active (becomes an 'X') */
-    .burger.active .burger-line:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .burger.active .burger-line:nth-child(2) {
-      opacity: 0;
-    }
-
-    .burger.active .burger-line:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px);
-    }
-
-    /* Mobile menu container (hidden on desktop) */
-    .mobile-menu {
-      display: none;
-      /* Initially not visible on mobile either */
-      background-color: #333;
-      position: absolute;
-      top: 100%;
-      /* Positioned right below the navbar */
-      left: 0;
-      right: 0;
-      max-height: 0;
-      /* Used for the slide-down transition */
-      overflow: hidden;
-      transition: max-height 0.3s ease-out;
-    }
-
-    /* Style for the mobile menu when it's active (visible) */
-    .mobile-menu.active {
-      max-height: 300px;
-      /* Animate to this height to reveal the menu */
-    }
-
-    .mobile-menu ul {
-      list-style: none;
-      padding: 20px;
-    }
-
-    /* Links inside the mobile menu */
-    .mobile-menu a {
-      color: white;
-      text-decoration: none;
-      display: block;
-      padding: 15px 0;
-      border-bottom: 1px solid #555;
-      transition: background-color 0.3s;
-    }
-
-    .mobile-menu a:hover {
-      background-color: #555;
-      padding-left: 10px;
-    }
-
-    /* --- Page Content Styles (for demonstration) --- */
-    .content {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .content h1 {
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-    .content p {
-      color: #666;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-
-    /* --- Media Queries for Responsiveness --- */
-
-    /* Tablet styles (1024px and below) */
-    @media (max-width: 1024px) {
-      .nav-links {
-        gap: 20px;
-      }
-
-      .navbar {
-        padding: 0 15px;
-      }
-    }
-
-    /* Mobile styles (768px and below) */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        /* Hide desktop links */
-      }
-
-      button.burger {
-        display: flex;
-        /* Show burger icon */
-      }
-
-      .mobile-menu {
-        display: block;
-        /* Allow mobile menu to be shown */
-      }
-
-      .navbar {
-        padding: 0 15px;
-      }
-    }
-
-    /* Small mobile styles (480px and below) */
-    @media (max-width: 480px) {
-      .navbar {
-        padding: 0 10px;
-      }
-
-      .nav-container {
-        height: 50px;
-      }
-
-      .logo {
-        font-size: 1.2rem;
-      }
-
-      /* Adjust body padding for the smaller navbar height */
-      /* body {
-        padding-top: 60px;
-      } */
-
-      /* .content {
-        padding: 20px 15px;
-      } */
-    }
-  </style>
-  <link rel="stylesheet" href="./backToTop.css">
-  <link rel="stylesheet" href="./about.css">
-  <link rel="stylesheet" href="./Services.css">
-  <link rel="stylesheet" href="./timeline.css">
-  <link rel="stylesheet" href="./slide1.css">
-  <link rel="stylesheet" href="./brandSlide.css">
-  <link rel="stylesheet" href="./celebritySlide.css">
-  <link rel="stylesheet" href="./feedBack.css">
-  <link rel="stylesheet" href="./contactForm.css">
-  <link rel="stylesheet" href="./footer.css">
-
-  <style>
-    /* background for hero section  */
-    #section1 {
-
-      /* background-color: rgb(0, 238, 255); */
-      background-image: url("./svg/background.svg");
-
-
-      background-repeat: no-repeat;
-      /* background-attachment: fixed; */
-      background-size: cover;
-
-
-    }
-
-    #mask {
-      position: absolute;
-      min-width: 100%;
-      min-height: 100vh;
-
-      /* background: linear-gradient(0deg, rgba(2, 2, 2, 0.658), #00000094, #ffffff00, rgba(255, 255, 255, 0), #000000b6, rgba(0, 0, 0, 0.801)); */
-
-
-      z-index: 1;
-    }
-
-    /* @media (max-width: 768px) {} */
-  </style>
-
-  <style>
-    /* nav logo animation on scroll */
-    .nav-logo {
-      opacity: 0;
-      transform: scale(0.8);
-      transition: all 3s cubic-bezier(0.65, 0.05, 0.36, 1);
-    }
-
-    .nav-logo.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .nav-logo .logo-text {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #c0c0c0;
-    }
-
-    .nav-logo .logo-subtitle {
-      font-size: 0.9rem;
-      color: #40e0ff;
-      margin-top: -5px;
-    }
-  </style>
-
-  <style>
-    /* hide the main log on scroll */
-    .center-logo {
-      margin-bottom: 50px;
-      transition: all 2.8s ease-in-out;
-    }
-
-    .center-logo.hidden {
-      opacity: 0;
-      transform: translateY(-100px) scale(0.8);
-    }
-
-    .logo-main {
-      display: flex;
-      justify-content: center;
-
-    }
-  </style>
-
-  <style>
-    /* Let's talc button */
-    .cta-button {
-      padding: 12px 24px;
-      border: 2px solid #40e0d0;
-      border-radius: 30px;
-      color: #40e0d0;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      margin-left: auto;
-      margin-right: 32px;
-    }
-
-    .cta-button::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: #40e0d0;
-      transition: left 0.3s ease;
-      z-index: -1;
-    }
-
-    .cta-button:hover {
-      color: #0a1f1c;
-
-      background: #35c5b5;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(64, 224, 208, 0.4);
-
-    }
-
-    .cta-button:hover::before {
-      left: 0;
-    }
-
-    @media (max-width : 768px) {}
-
-    @media (max-width : 480px) {}
-  </style>
 
 </head>
 
@@ -543,9 +78,9 @@
         <!-- <img id="background-image" src="./svg/background.svg" alt=""> -->
 
       </div>
-      <!-- <div id="mask">
+      <div id="mask">
 
-      </div> -->
+      </div>
 
 
       <main class="main-content">
@@ -897,8 +432,8 @@
           </div>
         </div>
 
-        <button class="nav-button prev" onclick="slider.prev()">‹</button>
-        <button class="nav-button next" onclick="slider.next()">›</button>
+        <button class="nav-button-slider prev" onclick="slider.prev()">‹</button>
+        <button class="nav-button-slider next" onclick="slider.next()">›</button>
 
         <div class="pagination"></div>
       </div>
@@ -1166,10 +701,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
-  <script src="./footer.js"></script>
-
-
-
+  <script src="./scripts/footer.js"></script>
 
   <script>
     // 6. JAVASCRIPT LOGIC
@@ -1196,30 +728,7 @@
     });
 
 
-    // --- GSAP SCROLL ANIMATIONS ---
-
-    // ANIMATION 1: Fade-in for section titles and paragraphs
-    // const sections = document.querySelectorAll('section');
-
-    // sections.forEach(section => {
-    //   const heading = section.querySelector('h2');
-    //   const paragraph = section.querySelector('p');
-
-
-    //   gsap.from([heading, paragraph], {
-    //     y: 50,
-    //     opacity: 0,
-    //     duration: 1,
-    //     ease: 'power3.out',
-    //     stagger: 0.2,
-    //     scrollTrigger: {
-    //       trigger: section,
-    //       start: 'top 70%', // Animation starts when the top of the section is 70% from the top of the viewport
-    //       end: 'bottom 20%',
-    //       toggleActions: 'play none none reverse', // Play on enter, reverse on leave
-    //     }
-    //   });
-    // });
+   
     // Animation 1: Change the navbar's background on scroll.
     ScrollTrigger.create({
       trigger: "body",         // The trigger for this animation is the entire page.
@@ -1235,7 +744,7 @@
 
   </script>
 
-  <script src="./backToTop.js"></script>
+  <script src="./scripts/backToTop.js"></script>
   <!-- nav -->
   <script>
     // Use an IIFE (Immediately Invoked Function Expression) to avoid polluting the global scope
@@ -1324,87 +833,12 @@
   </script>
 
   <!-- about counter -->
-  <script>
-    // Intersection Observer for triggering animations when stats come into view
-    const observerOptions = {
-      threshold: 0.5,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const statNumbers = entry.target.querySelectorAll('.stat-number');
-          statNumbers.forEach(stat => {
-            animateNumber(stat);
-          });
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    // Function to animate counting
-    function animateNumber(element) {
-      const target = parseInt(element.getAttribute('data-target'));
-      const duration = 2000; // 2 seconds
-      const increment = target / (duration / 16); // 60fps
-      let current = 0;
-
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          current = target;
-          clearInterval(timer);
-        }
-        element.textContent = Math.floor(current) + '+';
-      }, 16);
-    }
-
-    // Start observing the stats container
-    document.addEventListener('DOMContentLoaded', () => {
-      const statsContainer = document.querySelector('.stats-container');
-      if (statsContainer) {
-        observer.observe(statsContainer);
-      }
-    });
-  </script>
-
+  <script src="./scripts/aboutSection.js"></script>
   <!-- services section -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const serviceItems = document.querySelectorAll('.service-item');
-      const navButtons = document.querySelectorAll('.nav-button');
-
-      serviceItems.forEach(item => {
-        const button = item.querySelector('.nav-button');
-
-        button.addEventListener('click', () => {
-          // Check if the clicked item is already active
-          const wasActive = item.classList.contains('active');
-
-          // First, deactivate all items
-          serviceItems.forEach(i => i.classList.remove('active'));
-          navButtons.forEach(b => b.classList.remove('active-button-desktop'));
-
-          // If the clicked item was not active, activate it.
-          // This creates the accordion behavior where clicking an active item closes it.
-          if (!wasActive) {
-            item.classList.add('active');
-            button.classList.add('active-button-desktop'); // Also add a class for desktop arrow
-          } else {
-            // Optional: if you want one item to always be open, 
-            // uncomment the two lines below to re-activate the first item
-            // serviceItems[0].classList.add('active');
-            // navButtons[0].classList.add('active-button-desktop');
-          }
-        });
-      });
-    });
-  </script>
-
-  <script src="./slide1.js"></script>
-  <script src="./feedBack.js"></script>
-  <script src="./contactForm.js"></script>
+  <script src="./scripts/serviceSection.js"></script>
+  <script src="./scripts/socialSlider.js"></script>
+  <script src="./scripts/feedBack.js"></script>
+  <script src="./scripts/contactForm.js"></script>
 
 </body>
 

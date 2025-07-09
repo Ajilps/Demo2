@@ -1,0 +1,43 @@
+  /* hide the main log on scroll */
+    .center-logo {
+      margin-bottom: 50px;
+      transition: all 2.8s ease-in-out;
+    }
+
+    .center-logo.hidden {
+      opacity: 0;
+      transform: translateY(-100px) scale(0.8);
+    }
+
+    .logo-main {
+      display: flex;
+      justify-content: center;
+
+    }
+
+     /* background for hero section  */
+    #section1 {
+
+      /* background-color: rgb(0, 238, 255); */
+      background-image: url("../svg/background.svg");
+
+
+      background-repeat: no-repeat;
+      /* background-attachment: fixed; */
+      background-size: cover;
+
+
+    }
+
+    #mask {
+      position: absolute;
+      min-width: 100%;
+      min-height: 100vh;
+
+      background: linear-gradient(0deg, rgba(2, 2, 2, 0.658), #00000094, #ffffff00, rgba(255, 255, 255, 0), #000000b6, rgba(0, 0, 0, 0.801));
+
+
+      z-index: 1;
+    }
+
+    /* @media (max-width: 768px) {} */
