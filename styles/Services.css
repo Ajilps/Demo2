@@ -9,7 +9,7 @@
 
 /* --- Main Services Container --- */
     .services-section {
-      width: 100%;
+      /* width: 100%; */
       max-width: 1100px;
       background-color: var(--bg-color);
       padding: 2rem 3rem;
@@ -254,6 +254,7 @@
 
     @media (max-width: 480px) {
       .services-section {
+        margin: 0px 10px;
         padding: 1.5rem;
       }
 
