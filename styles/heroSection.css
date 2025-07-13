@@ -34,7 +34,7 @@
       min-width: 100%;
       min-height: 100vh;
 
-      background: linear-gradient(0deg, rgba(2, 2, 2, 0.658), #00000094, #ffffff00, rgba(255, 255, 255, 0), #000000b6, rgba(0, 0, 0, 0.801));
+      background: linear-gradient(0deg, rgb(2 2 2), #000000c7, #ffffff00, rgba(255, 255, 255, 0), #0000009c, rgb(0 0 0));
 
 
       z-index: 1;

@@ -10,6 +10,8 @@
 /* --- Main Services Container --- */
     .services-section {
       /* width: 100%; */
+      /* clip-path: polygon(45% 0, 74% 0, 100% 0, 100% 100%, 0 100%, 0 12%, 36% 12%); */
+      /* clip-path: polygon(45% 0, 74% 0, 100% 0, 100% 100%, 0 100%, 0 12%, 36% 12%); */
       max-width: 1100px;
       background-color: var(--bg-color);
       padding: 2rem 3rem;
@@ -17,6 +19,7 @@
       border: 2px solid var(--accent-color);
       box-shadow: 0 0 15px rgba(0, 240, 255, 0.3),
         inset 0 0 15px rgba(0, 240, 255, 0.2);
+
     }
 
     /* --- Section Header --- */

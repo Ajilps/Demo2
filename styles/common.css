@@ -24,7 +24,11 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      /* padding-bottom: 50px; */
+
+      padding-bottom: 50px;
+      padding-top: 50px;
+      margin-top: 50px;
+      margin-bottom: 30px;
       /* min-height: 100vh; */
       /* Crucial: Each section is full viewport height */
       /* min-width: 100vw; */
@@ -55,11 +59,13 @@
       align-items: center;
       position: relative;
       background-color: #1d2b3a;
+      margin:0 ;
     }
 
     #section2 {
       background-color: #000000;
       /* min-width: 100%; */
+      
     }
 
     #section3 {
@@ -79,7 +85,7 @@
     }
 
     /* 4. Styling for Animation Elements in Section 3 */
-    .box-container {
+    /* .box-container {
       display: flex;
       gap: 20px;
     }
@@ -89,4 +95,4 @@
       height: 100px;
       background-color: #00ff99;
       border-radius: 10px;
-    }
+    } */
