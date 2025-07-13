@@ -1,3 +1,5 @@
+  @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Kode+Mono:wght@400..700&family=Madimi+One&family=Metrophobic&family=Mina:wght@400;700&family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+  
   /* hide the main log on scroll */
     .center-logo {
       margin-bottom: 50px;
@@ -14,6 +16,38 @@
       justify-content: center;
 
     }
+    .logo-main img{
+      max-width: 90%;
+    }
+    .logo-subtitle-main{
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .logo-subtitle-main img{
+      width: 100%;
+    }
+    
+    .hero-heading {
+      text-align: center;
+      font-size: 1.8rem;
+      
+      margin-top: 20px;
+      
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+      font-family: "Agbalumo", system-ui;
+  font-weight: 400;
+  font-style: normal;
+    }
+    .hero-heading span {
+      color: rgb(26, 239, 247);
+      font-weight: 700;
+      /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); */
+    }
+
+  
+
 
      /* background for hero section  */
     #section1 {
@@ -40,4 +74,8 @@
       z-index: 1;
     }
 
-    /* @media (max-width: 768px) {} */
+      @media (max-width: 768px) {
+      .hero-heading {
+        font-size: 1.3rem;
+      }
+      }

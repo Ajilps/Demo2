@@ -208,5 +208,5 @@ class CustomSlider {
 }
 
 // Initialize slider
-const sliderContainer = document.querySelector(".slider-container");
+const sliderContainer = document.querySelector(".social-slider-container");
 const slider = new CustomSlider(sliderContainer);

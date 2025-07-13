@@ -1,31 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&family=Metrophobic&family=Mina:wght@400;700&family=Nanum+Myeongjo:wght@400;700;800&display=swap'); /* heading font */
+
+
+
 /* Container */
     .celebrity-container {
-      max-width: 1200px;
+      max-width: 90vw;
       margin: 0 auto;
       padding: 0 1rem;
+      background-color: black;
     }
 
-    /* Main Content Section */
-    .main-content {
-      padding: 3rem 0;
-      text-align: center;
-    }
-
-    .main-content h2 {
-      /* color: white;
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
-      margin-bottom: 1rem;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); */
-         
-      font-size: 4rem;
-      font-weight: 300;
-      line-height: 1.2;
-      letter-spacing: 0.1em;
-      color: #00bcd4;
-      font-family: 'Courier New', monospace;
-      text-transform: uppercase;
-      animation: glow 2s ease-in-out infinite alternate;
-    }
+  
 
     @keyframes glow {
       from {
@@ -38,14 +23,6 @@
     }
     
 
-    .main-content p {
-      color: rgba(255, 255, 255, 0.9);
-      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-      margin-bottom: 2rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
 
     /* Slider Section */
     .slider-section {
@@ -53,15 +30,30 @@
       /* background: rgba(255, 255, 255, 0.05); */
       /* backdrop-filter: blur(5px); */
       /* border-top: 1px solid rgba(255, 255, 255, 0.1); */
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0);
     }
 
-    .slider-title {
-      text-align: center;
-      color: white;
+    .celebrity-slider-title {
+      text-align: left;
+      color: rgb(26, 239, 247);
       font-size: clamp(1.5rem, 4vw, 2.5rem);
       margin-bottom: 2rem;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      animation: glow 6s ease-in-out infinite alternate;
+      position: relative;
+
+        font-family: "Metrophobic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    }
+    .celebrity-slider-title::after{
+      content: "";
+      position: absolute;
+      width: 40vw;
+      height: 4px;
+      align-self: center;
+      margin-left: 10px;
+background: linear-gradient(135deg, #00bcd4, #000);
     }
 
     /* Card Slider Styles */
@@ -191,13 +183,17 @@
 
     /* Mobile Optimizations */
     @media (max-width: 768px) {
+
+       .celebrity-slider-title::after{
+        width: 40vw;
+       }
+
       .slider {
         --width: min(200px, 80vw);
         --height: min(160px, 60vw);
       }
 
       .header,
-      .main-content,
       .features,
       .slider-section {
         padding: 2rem 0;
@@ -214,6 +210,9 @@
     }
 
     @media (max-width: 480px) {
+       .celebrity-slider-title::after{
+        display: none;
+       }
       .slider {
         --width: min(180px, 90vw);
         --height: min(140px, 70vw);

@@ -445,6 +445,11 @@
     }
 
     @media (max-width: 480px) {
+
+       .section-header::after{
+        display: none;
+       }
+
       .brand-logo {
         font-size: 4rem;
       }
