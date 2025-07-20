@@ -509,93 +509,52 @@
         <h1 class="brand-title">Our Brands</h1>
 
         <div class="brands-slider">
-          <div class="brands-track">
-            <!-- First set of brands -->
-            <div class="brand-item">
-              <div class="brand-logo intel"><img src="./images/brandsImage/intel.png" alt="image of intel"></div>
-            </div>
-            <div class="brand-item">
-              <div class="brand-logo vray"><img src="./images/brandsImage/3dsmax.png" alt=""></div>
-            </div>
-            <div class="brand-item">
-              <div class="brand-logo bridgestone"><img src="./images/brandsImage/stone.png" alt=""></div>
-            </div>
-            <div class="brand-item">
-              <div class="brand-logo visa"><img src="./images/brandsImage/visa.png" alt=""></div>
-            </div>
-
-            <!-- Duplicate set for seamless loop -->
-            <div class="brand-item">
-              <div class="brand-logo intel"><img src="./images/brandsImage/intel.png" alt="image of intel"></div>
-            </div>
-            <div class="brand-item">
-              <div class="brand-logo vray"><img src="./images/brandsImage/3dsmax.png" alt=""></div>
-            </div>
-            <div class="brand-item">
-              <div class="brand-logo bridgestone"><img src="./images/brandsImage/stone.png" alt=""></div>
-            </div>
-            <div class="brand-item">
-              <div class="brand-logo visa"><img src="./images/brandsImage/visa.png" alt=""></div>
-            </div>
+          <div class="brands-track" id="brandsTrack">
+            <!-- Logos will be dynamically generated here -->
           </div>
         </div>
       </div>
-
     </section>
 
     <!-- celebrity  -->
 
     <div class="celebrity-container">
       <h2 class="celebrity-slider-title">Celebrity Collaboration</h2>
-      <div class="slider">
-        <div class="list">
-          <div class="item" style="--position: 1">
-            <div class="card" style="background: linear-gradient(to right, #ff7e5f, #feb47b)">
-              <img src="" alt="image">
-            </div>
+
+      <div class="celebrity-slider-container">
+
+        <div class="celebrity-slider-track">
+          <div class="celebrity-slide celebrity-slide--center">
+            <div class="celebrity-slide-image"></div>
+            <div class="celebrity-slide-name"></div>
           </div>
-          <div class="item" style="--position: 2">
-            <div class="card" style="background: linear-gradient(to right, #6a11cb, #2575fc)">
-              <img src="./svg/celebrityManagement.svg" width="100px" alt="">
-            </div>
+          <div class="celebrity-slide celebrity-slide--right">
+            <div class="celebrity-slide-image"></div>
+            <div class="celebrity-slide-name"></div>
           </div>
-          <div class="item" style="--position: 3">
-            <div class="card" style="background: linear-gradient(to right, #00c6ff, #0072ff)">
+          <div class="celebrity-slide celebrity-slide--far-right">
+            <div class="celebrity-slide-image">
 
             </div>
+            <div class="celebrity-slide-name"></div>
           </div>
-          <div class="item" style="--position: 4">
-            <div class="card" style="background: linear-gradient(to right, #ff512f, #dd2476)">
-
-            </div>
+          <div class="celebrity-slide celebrity-slide--hidden-right">
+            <div class="celebrity-slide-image"></div>
+            <div class="celebrity-slide-name"></div>
           </div>
-          <div class="item" style="--position: 5">
-            <div class="card" style="background: linear-gradient(to right, #ffb6c1, #ff69b4)">
-
-            </div>
-          </div>
-          <div class="item" style="--position: 6">
-            <div class="card" style="background: linear-gradient(to right, #ff9a8b, #ffc3a0)">
-
-            </div>
-          </div>
-          <div class="item" style="--position: 7">
-            <div class="card" style="background: linear-gradient(to right, #a1c4fd, #c2e9fb)">
-
-            </div>
-          </div>
-          <div class="item" style="--position: 8">
-            <div class="card" style="background: linear-gradient(to right, #fbc2eb, #a18cd1)">
-
-            </div>
-          </div>
-          <div class="item" style="--position: 9">
-            <div class="card" style="background: linear-gradient(to right, #84fab0, #8fd3f4)">
-
-            </div>
+          <div class="celebrity-slide celebrity-slide--hidden-right">
+            <div class="celebrity-slide-image"></div>
+            <div class="celebrity-slide-name"></div>
           </div>
         </div>
+
+        <div class="celebrity-slider-controls">
+          <button class="celebrity-control-btn" onclick="prevSlide()">←</button>
+          <button class="celebrity-control-btn" onclick="nextSlide()">→</button>
+        </div>
+
       </div>
+
     </div>
     <!-- </section> -->
     <!-- </section> -->
@@ -656,6 +615,21 @@
                 difference. I wouldn't hesitate to work with them again."
               </div>
             </div>
+            <div class="feedback-card">
+              <div class="feedback-header">
+                <div class="feedback-avatar">RA</div>
+                <div class="feedback-client-info">
+                  <h3>Robert Anderson</h3>
+                  <p>Founder, StartupVenture</p>
+                </div>
+              </div>
+              <div class="feedback-designation">Highly Recommended</div>
+              <div class="feedback-text">
+                "From start to finish, the experience was seamless. Their expertise and dedication to quality made all
+                the
+                difference. I wouldn't hesitate to work with them again."
+              </div>
+            </div>
 
             <div class="feedback-navigation">
               <button class="feedback-nav-btn" id="feedbackPrevBtn">‹</button>
@@ -666,6 +640,7 @@
               <span class="feedback-dot active" onclick="currentFeedbackSlide(1)"></span>
               <span class="feedback-dot" onclick="currentFeedbackSlide(2)"></span>
               <span class="feedback-dot" onclick="currentFeedbackSlide(3)"></span>
+              <span class="feedback-dot" onclick="currentFeedbackSlide(4)"></span>
             </div>
           </div>
         </div>
@@ -895,6 +870,8 @@
   <script src="./scripts/feedBack.js"></script>
   <script src="./scripts/contactForm.js"></script>
   <script src="./scripts/socialSlider.js"></script>
+  <script src="./scripts/celebritySlide.js"></script>
+  <script src="./scripts/brandSlide.js"></script>
 
 </body>
 
