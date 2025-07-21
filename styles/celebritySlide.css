@@ -6,9 +6,10 @@
     .celebrity-container {
       height: 100%;
       max-width: 90vw;
-      margin: 0 auto;
-      padding: 0 1rem;
+      /* margin: 0 auto; */
+      /* padding: 0 1rem; */
       background-color: black;
+      overflow-x: hidden;
     }
 
   
@@ -58,12 +59,13 @@ background: linear-gradient(135deg, #00bcd4, #000);
     }
 
      .celebrity-slider-container {
-      /* width: 100vw; */
-      height: 200px;
+      width: 100vw;
+       height: 298px;
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow-x: hidden;
     }
 
     .celebrity-slider-track {
@@ -218,6 +220,16 @@ background: linear-gradient(135deg, #00bcd4, #000);
        .celebrity-slider-title::after{
         display: none;
        }
+       .celebrity-slider-container {
+    width: 100vw;
+    height: 298px;
+    position: relative;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
      
 
       .container {
