@@ -37,6 +37,7 @@
 
     .celebrity-slider-title {
       text-align: left;
+      padding-left: 5%;
       color: rgb(26, 239, 247);
       font-size: clamp(1.5rem, 4vw, 2.5rem);
       margin-bottom: 2rem;

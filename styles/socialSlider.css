@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Madimi+One&family=Metrophobic&family=Mina:wght@400;700&family=Nanum+Myeongjo:wght@400;700;800&display=swap');
 
     .social-slider-section {
-      padding: 4rem 0;
+      /* padding: 4rem 0; */
       background: rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(5px);
       border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -37,7 +37,7 @@
     .social-slider-container {
       position: relative;
       width: 100%;
-      height: 550px;
+      height: 700px;
       perspective: 1200px;
       overflow: hidden;
     }
@@ -45,7 +45,7 @@
     .slider-wrapper {
       position: absolute;
       width: 100%;
-      height: 100%;
+      height: 90%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -55,107 +55,25 @@
     .slide {
       position: absolute;
       width: 320px;
-      height: 450px;
+      height: 550px;
       transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       transform-style: preserve-3d;
       cursor: pointer;
+      align-items: self-start;
     }
 
-    .social-card {
-      width: 100%;
-      height: 100%;
-      background: #fff;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s ease;
-      position: relative;
+    .slide:hover {
+      transform: translateY(-10px) translateZ(50px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
-
-    .social-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .social-card .slidertext {
-      height: 180px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .social-card .slidertext h3 {
-      color: #fff;
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      z-index: 2;
-      position: relative;
-    }
-
-    .social-card .slidertext::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.1);
-      z-index: 1;
-    }
-
-    .social-card .content {
-      padding: 25px;
-      height: calc(100% - 180px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .social-card .content p {
-      line-height: 1.6;
-      color: #333;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    .social-card .content a {
-      display: inline-block;
-      margin: 10px 0 0;
-      padding: 12px 24px;
-      text-decoration: none;
-      border: 2px solid #262626;
-      color: #262626;
-      font-weight: 600;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      align-self: flex-start;
-    }
-
-    .social-card .content a:hover {
-      background: #262626;
-      color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(38, 38, 38, 0.3);
-    }
-
-    /* Gradient backgrounds for cards */
-    .slide:nth-child(1) .slidertext { background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%); }
-    .slide:nth-child(2) .slidertext { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); }
-    .slide:nth-child(3) .slidertext { background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); }
-    .slide:nth-child(4) .slidertext { background: linear-gradient(135deg, #ff512f 0%, #dd2476 100%); }
-    .slide:nth-child(5) .slidertext { background: linear-gradient(135deg, #ffb6c1 0%, #ff69b4 100%); }
-    .slide:nth-child(6) .slidertext { background: linear-gradient(135deg, #ff9a8b 0%, #ffc3a0 100%); }
-    .slide:nth-child(7) .slidertext { background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); }
-    .slide:nth-child(8) .slidertext { background: linear-gradient(135deg, #fbc2eb 0%, #a18cd1 100%); }
-    .slide:nth-child(9) .slidertext { background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); }
+   
 
     /* Slide positioning states */
     .slide.active {
       transform: translateX(0) translateZ(0) rotateY(0deg);
       opacity: 1;
       z-index: 10;
+      transform: translateY(-10px) translateZ(50px);
     }
 
     .slide.prev {
@@ -221,7 +139,7 @@
     /* Pagination dots */
     .pagination {
       position: absolute;
-      bottom: 20px;
+      bottom: 2px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -246,7 +164,7 @@
     /* Mobile responsiveness */
     @media (max-width: 768px) {
       .slider-container {
-        height: 450px;
+        height: 550px;
       }
 
       .social-slider-title::after {
@@ -296,6 +214,7 @@
       .nav-button-slider {
         font-size: 1.5rem;
         padding: 10px 15px;
+
       }
     }
 
@@ -313,8 +232,8 @@
       }
 
       .slide {
-        width: 250px;
-        height: 350px;
+        width: 350px;
+        height: 600px;
       }
 
 
