@@ -17,6 +17,10 @@
       max-width: 1200px;
       margin: 0 auto;
     }
+    a {
+      color: #00f7ff;
+      text-decoration: none;
+    }
 
 .about-tagline{
   display: none;
@@ -39,7 +43,7 @@
     }
  .section-header {
     position: absolute;
-      color: #40e0d0;
+      color: #0097b2;
       font-size: 1rem;
       font-weight: bold;
       text-transform: uppercase;
@@ -155,7 +159,7 @@
 
 
     .detailed-text-container-border{
-  background: linear-gradient(283deg, #000000, #0a979c6e, #00f6fe);
+  background: linear-gradient(283deg, #000000, #0a979c6e, #0097b2);
  
   padding: 4px;
   border-radius: 20px;
@@ -184,7 +188,7 @@
     }
 
     .read-more-btn {
-      color: #40e0d0;
+      color: #0097b2;
       font-size: 1rem;
       font-weight: bold;
       text-transform: uppercase;
@@ -226,12 +230,12 @@
 
 .stats-container::before {
  left: calc(-1 * clamp(80px, 20vw,  150px));
-  background: linear-gradient(135deg, #0c0c0c, #00f2fe);
+  background: linear-gradient(135deg, #0c0c0c, #0097b2);
 }
 
 .stats-container::after {
  right: calc(-1 * clamp(80px, 20vw, 150px));
-  background: linear-gradient(135deg, #00f6fe, #0c0c0c);
+  background: linear-gradient(135deg, #0097b2, #0c0c0c);
 }
 
     .stat-item {
@@ -242,14 +246,14 @@
     .stat-number {
       font-size: 4rem;
       font-weight: bold;
-      color: #40e0d0;
+      color: #0097b2;
       margin-bottom: 10px;
       display: block;
       text-shadow: 0 0 20px rgba(64, 224, 208, 0.5);
     }
 
     .stat-label {
-      color: #40e0d0;
+      color: #0097b2;
       font-size: 1.2rem;
       font-weight: bold;
       text-transform: uppercase;
@@ -259,7 +263,7 @@
     .stat-line {
       width: 100px;
       height: 2px;
-      background: linear-gradient(90deg, transparent, #40e0d0, transparent);
+      background: linear-gradient(90deg, transparent, #0097b2, transparent);
       margin: 20px auto;
     }
 
@@ -283,23 +287,24 @@
     @media(max-width:850px){
 
           .about-tagline{
-  display: block;
-  position: absolute;
-  top: -160px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #40e0d0; 
-  font-size: 1.2rem;
-  font-weight: 500;   
-  font-family: "Poppins", sans-serif;
-  font-style: normal;
-  text-align: center;
-  z-index: 2;
-   font-family: "Monomaniac One", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  /* text-transform: uppercase; */
-  letter-spacing: 1px;  
+ display: block;
+        position: absolute;
+        top: -160px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #0097b2;
+        font-size: 1.7rem;
+        font-weight: 500;
+        font-family: "Poppins", sans-serif;
+        font-style: normal;
+        text-align: center;
+        z-index: 2;
+        font-family: "Monomaniac One", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        /* text-transform: uppercase; */
+        letter-spacing: 1px;
+        width: 97%; 
 }
 
 .avatar-container{
@@ -311,12 +316,12 @@
 }
 
 .about-text-block-border{
-  background: linear-gradient(119deg, #000000, #000000, #00f6fe);
+  background: linear-gradient(119deg, #000000, #000000, #0097b2);
   margin-top: 250px;
 }
 .detailed-text-container-border{
  margin-top: -80px;
-    background: linear-gradient(283deg, #000000, #0a979c6e, #00f6fe);
+    background: linear-gradient(283deg, #000000, #0a979c6e, #0097b2);
     text-align: start;
 }
 .detailed-text{
@@ -395,7 +400,7 @@
       }
 
       .main-content {
-        padding: 100px 20px 40px;
+        padding: 30px 20px 40px;
       }
 
       .brand-logo {
@@ -530,7 +535,7 @@
 }
 
 .about-text-block-border{
-  background: linear-gradient(119deg, #000000, #000000, #00f6fe);
+  background: linear-gradient(119deg, #000000, #000000, #0097b2);
   margin-top: 250px;
 }
       .brand-logo {

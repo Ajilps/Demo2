@@ -1,0 +1,186 @@
+:root{
+  --primary-color: #0097B2;
+  --background-color:black;
+  --secondary-background-color: #292929;
+
+  --heading-font-size: 2rem;
+  --heading-font-weight: 900;
+  --heading-font-color: white;
+  
+  --text-color: white;
+  --text-font-weight: 400;
+  --text-font-size: 1rem;
+  --font-family: 'Poppins', sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding-top: 55px;
+}
+
+section {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-radius: 20px;
+  font: var(--text-font-weight) var(--text-font-size)/1.5 var(--font-family);
+}
+img {
+  max-width: 300px;
+  height: auto;
+}
+h1, h2, h3,h4,p,span {
+  font-family: var(--font-family);
+  color: var(--heading-font-color);
+  margin-bottom: 10px;
+}
+h1 {
+  font-size: var(--heading-font-size);
+  font-weight: var(--heading-font-weight);
+  margin-bottom: 20px;
+}
+.influencer-marketing-section{
+  background-color: var(--primary-color);
+}
+
+.what-we-do-section{
+  background-color: var(--secondary-background-color);
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.what-we-do-section h2 {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: start;
+  width: 100%;
+
+} 
+
+.image-container{
+  max-width: 250px;
+  padding: 0 20px;
+  margin: 0 20px;
+}
+.text-container{
+  flex: 1;
+  padding: 20px;
+}
+
+#IMimage1{
+  float: inline-end;
+
+}
+
+/* What We Do */
+.what-we-do-container{
+  display: flex;
+  flex-direction: row;
+ 
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.what-we-do-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.what-we-do-container ul{
+  padding: 10px 20px;
+  margin: 0;
+}
+
+/* Why Choose Us */
+.why-choose-us-section{
+  background-color: var(--background-color);
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+.what-we-do-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Industry Card Section */
+.industry-card-section{
+padding: 10px 0px;
+}
+.industry-cards{
+  display: flex;
+  
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.card-column-1, .card-column-2, .card-column-3 {
+  flex: 1;
+  display: flex;
+  
+  align-items: center;}
+
+.industry-card{
+  background-color: var(--secondary-background-color);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  min-width: 150px;
+  margin: 0 5px;
+  border: 1px solid var(--primary-color);
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+ 
+}
+.industry-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px var(--primary-color);
+}
+
+/* What We Do */
+
+
+
+
+@media (max-width: 768px) {
+  section {
+    flex-direction: column;
+    align-items: center;
+  }
+ 
+  h1, h2, h3,h4,p,span {
+
+  }
+  img {
+    max-width: 150px;
+  }
+  .what-we-do-container{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .industry-cards{
+         flex-direction: column;
+  flex-wrap: wrap;
+  }
+
+ .card-column-2{
+  margin: 10px 0;
+ }
+}
+    

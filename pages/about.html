@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link rel="stylesheet" href="../styles/pages/topNavbar.css">
+  <link rel="stylesheet" href="../styles/pages/aboutUs/aboutUs.css">
+  <link rel="stylesheet" href="../styles/footer.css">
+
+
+
+
+
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo" id="navLogo">
+        <div class="logo-text">
+          <img src="../svg/newIcon.svg" width="60px" alt="">
+        </div>
+
+
+      </div>
+      <!-- <a href="#" class="logo">Logo</a> -->
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+
+        <li><a href="#section3">Services</a></li>
+        <li><a href="#section4">Our approach</a></li>
+
+      </ul>
+      <a href="#section9" class="cta-button">LET'S TALK</a>
+      <!-- Burger button is now semantically correct and accessible -->
+      <button class="burger" aria-controls="mobile-menu" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+      </button>
+    </div>
+
+    <!-- The id="mobile-menu" links it to the button's aria-controls -->
+    <div class="mobile-menu" id="mobile-menu">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+
+        <li><a href="#section3">Services</a></li>
+        <li><a href="#section4">Our approach</a></li>
+
+      </ul>
+    </div>
+  </nav>
+  <section>
+    <h1 id="aboutUsHeading">About Us</h1>
+
+  </section>
+  <section id="section1">
+    <div class="text-section">
+      <p>
+        Adkulture is a dynamic and results-driven advertising and influencer marketing agency with a strong presence
+        across South India. With strategically located offices in Kochi, Chennai, Bangalore, and Hyderabad, we bring
+        regional expertise and nationwide impact to every brand we work with.
+      </p>
+    </div>
+    <div class="image-section"><img src="../images/aboutUs/image1.png" alt=""></div>
+
+  </section>
+
+  <section id="section2">
+    <div class="image-section"><img src="../images/aboutUs/image2.png" alt=""></div>
+    <div class="text-section">
+      <p>
+        At Adkulture, we specialise in celebrity management, influencer marketing, event production, and creative
+        advertising solutions tailored to elevate your brand's visibility and engagement. Our team combines cutting-edge
+        strategy with hands-on execution to ensure performance-oriented campaigns that deliver measurable ROI.
+      </p>
+    </div>
+
+  </section>
+
+  <section id="section3">
+    <div class="text-section">
+      <p>
+        Whether it’s crafting viral digital content, executing large-scale branding campaigns, or managing top
+        influencers across South India, Adkulture is your trusted partner in building compelling brand stories that
+        convert.
+      </p>
+    </div>
+    <div class="image-section">
+      <img src="../images/aboutUs/image3.png" alt="">
+    </div>
+  </section>
+
+  <section id="section4">
+    <div class="image-section">
+      <img src="../images/aboutUs/image4.png" alt="">
+    </div>
+    <div class="text-section">
+      <p>
+        We pride ourselves on our strong network of influencers, robust client servicing, and creative storytelling that
+        resonates across platforms. As a full-service advertising agency, we are committed to transforming ideas into
+        impactful marketing experiences.
+      </p>
+    </div>
+
+  </section>
+  <section id="section5">
+
+    <span>Let’s shape culture together &dash; with performance, creativity, and precision.</span>
+  </section>
+
+
+  <!-- Footer Section -->
+  <footer class="footer" id="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <div class="footer-logo">
+
+          <img src="../images/footer/Group 111.png" alt="adkulture logo">
+        </div>
+
+        <div class="footer-cta">
+          <h2>Let's start working together</h2>
+          <div class="footer-email">
+            <span>✉</span>
+            <span>connect@adkulture.com</span>
+          </div>
+        </div>
+
+        <div class="footer-locations">
+          Kochi, Chennai, Bangalore, Hyderabad
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-nav">
+          <a href="../index.html">Home</a>
+          <!-- <a href="#contact">Contact</a> -->
+          <!-- <a href="#portfolio">Our Portfolio</a> -->
+          <!-- <a href="#gallery">Gallery</a> -->
+        </div>
+
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><img src="../images/footer/fb.svg" alt=""></a>
+          <a href="#" aria-label="Instagram"><img src="../images/footer/insta.svg" alt=""></a>
+          <a href="#" aria-label="LinkedIn"><img src="../images/footer/in.svg" alt=""></a>
+        </div>
+
+        <div class="footer-contact">
+          <span>📞</span>
+          <span>9846841443</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © Copyright 2025 adkulcute | All Rights Reserved.
+    </div>
+  </footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+
+  <script src="../scripts/pages/lenisScroll.js"></script>
+  <script src="../scripts/pages/topNavbar.js"></script>
+  
+  <script src="../scripts/pages/aboutUs/aboutUs.js"></script>
+  <!-- nav -->
+
+</body>
+
+</html>
