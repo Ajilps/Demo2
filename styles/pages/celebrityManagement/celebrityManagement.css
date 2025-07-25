@@ -1,7 +1,7 @@
 :root{
   --primary-color: #0097B2;
   --background-color:black;
-  --secondary-background-color: #292929;
+  --secondary-background-color: #2B2B2B;
 
   --heading-font-size: 2rem;
   --heading-font-weight: 900;
@@ -12,6 +12,8 @@
   --text-font-size: 1rem;
   --font-family: 'Poppins', sans-serif;
 }
+
+
 * {
   margin: 0;
   padding: 0;
@@ -23,13 +25,12 @@ body {
   color: var(--text-color);
   padding-top: 55px;
 }
-
 section {
   padding: 20px;
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
-  display: flex;
-  flex-direction: row;
+  /* display: flex; */
+  /* flex-direction: row; */
   flex-wrap: wrap;
   border-radius: 20px;
   font: var(--text-font-weight) var(--text-font-size)/1.5 var(--font-family);
@@ -37,8 +38,9 @@ section {
 img {
   max-width: 300px;
   height: auto;
+  padding: 5px;
 }
-h1, h2, h3,h4,p,span {
+h1, h2, h3,h4,h5,h6,p,span {
   font-family: var(--font-family);
   color: var(--heading-font-color);
   margin-bottom: 10px;
@@ -47,78 +49,78 @@ h1 {
   font-size: var(--heading-font-size);
   font-weight: var(--heading-font-weight);
   margin-bottom: 20px;
+  color: var(--primary-color);
 }
-.influencer-marketing-section{
-  background-color: var(--primary-color);
-}
-
-.what-we-do-section{
-  background-color: var(--secondary-background-color);
-  padding: 20px;
-  border-radius: 20px;
-}
-
-.what-we-do-section h2 {
-  color: var(--text-color);
+h3{
   font-size: 1.5rem;
-  font-weight: 700;
-  text-align: start;
-  width: 100%;
-
-} 
-
-.image-container{
-  max-width: 250px;
-  padding: 0 20px;
-  margin: 0 20px;
+  font-weight: 600;
 }
-.text-container{
-  flex: 1;
-  padding: 20px;
+h5 {
+  font-weight: 300;
+  text-align: center ;
 }
 
-#IMimage1{
-  float: inline-end;
-
+img {
+  max-width: 300px;
+  height: auto;
 }
-
-/* What We Do */
-.what-we-do-container{
+.infoContainer{
   display: flex;
   flex-direction: row;
- 
+  justify-content: center;
+  align-items: center;
+
+  margin: 10px;
+}
+
+
+/* section 2 */
+
+.CelebritySection2{
+background-image: url('../../../images/celebrityManagePage/celebrityManagePage-image2.png');
+  background-size: auto 100%;
+  background-position: center;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-top: 20px;
 }
-.what-we-do-container img {
-  max-width: 100%;
-  height: auto;
+
+.infoContainer2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin-left: auto;
+  margin: 10px;
+  width: 100%;
+}
+
+.serviceCard{
+  background-color: var(--primary-color);
   border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  flex: 1;
+  min-width: 250px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-.what-we-do-container ul{
-  padding: 10px 20px;
+.serviceCard p{
   margin: 0;
 }
-
-/* Why Choose Us */
-.why-choose-us-section{
-  background-color: var(--background-color);
-  padding: 20px;
-  border-radius: 20px;
-  margin-top: 20px;
-}
-.what-we-do-container{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 20px;
+.serviceCard h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: start;
 }
 
-/* Industry Card Section */
-.industry-card-section{
-padding: 10px 0px;
+
+/* section 4 */
+.CelebritySection4{
+  max-width: 800px;
 }
 .industry-cards{
   display: flex;
@@ -131,11 +133,13 @@ padding: 10px 0px;
 .card-column-1, .card-column-2, .card-column-3 {
   flex: 1;
   display: flex;
-  
-  align-items: center;}
+
+  align-items: center;
+  justify-content: center;
+}
 
 .industry-card{
-  background-color: var(--secondary-background-color);
+  background-color: var(--background-color);
   border-radius: 10px;
   padding: 10px;
   text-align: center;
@@ -145,15 +149,14 @@ padding: 10px 0px;
 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
- 
+ height: 120px;
 }
 .industry-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 10px var(--primary-color);
 }
 
-/* What We Do */
-
+/* section 5 */
 
 
 
@@ -162,19 +165,28 @@ padding: 10px 0px;
     flex-direction: column;
     align-items: center;
   }
- 
-  /* h1, h2, h3,h4,p,span {
+  h1{
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.1rem;
+  }
 
-  } */
   img {
     max-width: 150px;
   }
-  .what-we-do-container{
+
+  
+  .infoContainer {
     flex-direction: column;
     align-items: center;
   }
+  .infoContainer div {
+    text-align: center;
+  }
 
-  .industry-cards{
+  /* section 3 */
+   .industry-cards{
          flex-direction: column;
   flex-wrap: wrap;
   }
@@ -182,5 +194,5 @@ padding: 10px 0px;
  .card-column-2{
   margin: 10px 0;
  }
+
 }
-    
