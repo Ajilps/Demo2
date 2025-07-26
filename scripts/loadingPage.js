@@ -68,14 +68,14 @@ class LoadingManager {
       // Hide loading screen
       this.loadingScreen.classList.add("loading-screen--hidden");
 
-      // Show main content
-      setTimeout(() => {
-        this.mainContent.classList.add("main-content--visible");
+      // // Show main content
+      // setTimeout(() => {
+      //   this.mainContent.classList.add("main-content--visible");
 
-        // Initialize contact form after loading is complete
-        new ContactFormManager();
-      }, 400);
-    }, 500);
+      //   // Initialize contact form after loading is complete
+      //   new ContactFormManager();
+      // }, 400);
+    }, 300);
   }
 }
 
