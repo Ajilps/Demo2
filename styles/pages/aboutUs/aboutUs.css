@@ -3,7 +3,7 @@
   --secondary-color: #00bfff;
   --background-color: black;
   --text-color: white;
-  --heading-font-size: 2rem;
+  --heading-font-size: 3rem;
   --heading-font-weight: 800;
   --heading-font-color: #0097b2;
 
@@ -89,6 +89,9 @@ section {
   section {
     flex-direction: column;
     padding: 10px;
+  }
+  h1 {
+    font-size: 1.7rem;
   }
   .text-section,
   .image-section {

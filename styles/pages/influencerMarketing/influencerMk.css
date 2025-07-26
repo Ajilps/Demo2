@@ -3,7 +3,7 @@
   --background-color: black;
   --secondary-background-color: #292929;
 
-  --heading-font-size: 2rem;
+  --heading-font-size: 3rem;
   --heading-font-weight: 900;
   --heading-font-color: white;
 
@@ -55,6 +55,15 @@ h1 {
 }
 .influencer-marketing-section {
   background-color: var(--primary-color);
+  margin: auto;
+}
+.influencer-description > p {
+  margin: 3vw 0;
+  /* background-color: black; */
+  width: 60%;
+}
+.influencer-description > h4 {
+  margin: 1vw 0;
 }
 
 .what-we-do-section {
@@ -170,6 +179,9 @@ h1 {
   /* h1, h2, h3,h4,p,span {
 
   } */
+  h1 {
+    font-size: 1.8rem;
+  }
   img {
     max-width: 150px;
   }
