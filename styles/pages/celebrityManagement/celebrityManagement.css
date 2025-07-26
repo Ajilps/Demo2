@@ -1,18 +1,17 @@
-:root{
-  --primary-color: #0097B2;
-  --background-color:black;
-  --secondary-background-color: #2B2B2B;
+:root {
+  --primary-color: #0097b2;
+  --background-color: black;
+  --secondary-background-color: #2b2b2b;
 
   --heading-font-size: 2rem;
   --heading-font-weight: 900;
   --heading-font-color: white;
-  
+
   --text-color: white;
   --text-font-weight: 400;
   --text-font-size: 1rem;
-  --font-family: 'Poppins', sans-serif;
+  --font-family: "Poppins", sans-serif;
 }
-
 
 * {
   margin: 0;
@@ -27,20 +26,27 @@ body {
 }
 section {
   padding: 20px;
-  max-width: 900px;
+  max-width: 1200px;
   margin: auto;
   /* display: flex; */
   /* flex-direction: row; */
   flex-wrap: wrap;
   border-radius: 20px;
-  font: var(--text-font-weight) var(--text-font-size)/1.5 var(--font-family);
+  font: var(--text-font-weight) var(--text-font-size) / 1.5 var(--font-family);
 }
 img {
   max-width: 300px;
   height: auto;
   padding: 5px;
 }
-h1, h2, h3,h4,h5,h6,p,span {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
   font-family: var(--font-family);
   color: var(--heading-font-color);
   margin-bottom: 10px;
@@ -51,20 +57,21 @@ h1 {
   margin-bottom: 20px;
   color: var(--primary-color);
 }
-h3{
+h3 {
   font-size: 1.5rem;
   font-weight: 600;
 }
 h5 {
   font-weight: 300;
-  text-align: center ;
+  /* text-align: center; */
+  padding: 10px;
 }
 
 img {
   max-width: 300px;
   height: auto;
 }
-.infoContainer{
+.infoContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -73,11 +80,10 @@ img {
   margin: 10px;
 }
 
-
 /* section 2 */
 
-.CelebritySection2{
-background-image: url('../../../images/celebrityManagePage/celebrityManagePage-image2.png');
+.CelebritySection2 {
+  background-image: url("../../../images/celebrityManagePage/celebrityManagePage-image2.png");
   background-size: auto 100%;
   background-position: center;
   padding: 20px;
@@ -88,7 +94,7 @@ background-image: url('../../../images/celebrityManagePage/celebrityManagePage-i
   justify-content: space-between;
 }
 
-.infoContainer2{
+.infoContainer2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,7 +104,7 @@ background-image: url('../../../images/celebrityManagePage/celebrityManagePage-i
   width: 100%;
 }
 
-.serviceCard{
+.serviceCard {
   background-color: var(--primary-color);
   border-radius: 10px;
   padding: 20px;
@@ -107,7 +113,7 @@ background-image: url('../../../images/celebrityManagePage/celebrityManagePage-i
   min-width: 250px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-.serviceCard p{
+.serviceCard p {
   margin: 0;
 }
 .serviceCard h5 {
@@ -117,20 +123,20 @@ background-image: url('../../../images/celebrityManagePage/celebrityManagePage-i
   text-align: start;
 }
 
-
 /* section 4 */
-.CelebritySection4{
+.CelebritySection4 {
   max-width: 800px;
 }
-.industry-cards{
+.industry-cards {
   display: flex;
-  
+
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  
 }
-.card-column-1, .card-column-2, .card-column-3 {
+.card-column-1,
+.card-column-2,
+.card-column-3 {
   flex: 1;
   display: flex;
 
@@ -138,7 +144,7 @@ background-image: url('../../../images/celebrityManagePage/celebrityManagePage-i
   justify-content: center;
 }
 
-.industry-card{
+.industry-card {
   background-color: var(--background-color);
   border-radius: 10px;
   padding: 10px;
@@ -149,7 +155,7 @@ background-image: url('../../../images/celebrityManagePage/celebrityManagePage-i
 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
- height: 120px;
+  height: 135px;
 }
 .industry-card:hover {
   transform: translateY(-5px);
@@ -158,14 +164,12 @@ background-image: url('../../../images/celebrityManagePage/celebrityManagePage-i
 
 /* section 5 */
 
-
-
 @media (max-width: 768px) {
   section {
     flex-direction: column;
     align-items: center;
   }
-  h1{
+  h1 {
     font-size: 1.5rem;
   }
   h3 {
@@ -176,7 +180,6 @@ background-image: url('../../../images/celebrityManagePage/celebrityManagePage-i
     max-width: 150px;
   }
 
-  
   .infoContainer {
     flex-direction: column;
     align-items: center;
@@ -186,13 +189,12 @@ background-image: url('../../../images/celebrityManagePage/celebrityManagePage-i
   }
 
   /* section 3 */
-   .industry-cards{
-         flex-direction: column;
-  flex-wrap: wrap;
+  .industry-cards {
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 
- .card-column-2{
-  margin: 10px 0;
- }
-
+  .card-column-2 {
+    margin: 10px 0;
+  }
 }
