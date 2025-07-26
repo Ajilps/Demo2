@@ -23,7 +23,8 @@
   <link rel="stylesheet" href="./styles/footer.css">
 
 
-
+  <link rel="stylesheet" href="./styles/loadingPage.css">
+  <script src="./scripts/loadingPage.js" defer></script>
 
 
 
@@ -31,6 +32,17 @@
 </head>
 
 <body>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-logo">
+      <img src="./svg/newIcon.svg" width="300px" alt="adkulture brand icon ">
+    </div>
+    <div class="loading-text">Loading</div>
+    <div class="loading-progress">
+      <div class="loading-progress-bar" id="progressBar"></div>
+    </div>
+  </div>
 
 
   <nav class="navbar">
