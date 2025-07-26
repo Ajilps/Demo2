@@ -164,11 +164,11 @@
 
         <div class="stats-container">
           <div class="stat-item">
-            <div class="stat-number" data-target="1500">0+</div>
+            <div class="stat-number" data-target="5000">0+</div>
             <div class="stat-label">Influencer Network</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number" data-target="100">0+</div>
+            <div class="stat-number" data-target="150">0+</div>
             <div class="stat-label">Brands Served</div>
           </div>
         </div>
@@ -538,30 +538,66 @@
 
     <!-- contact Form -->
     <section id="section9">
-      <div class="contact-form-container" id="contactFormContainer">
-        <h2 class="form-header" id="formHeader">Ready to discuss your project with us?</h2>
+      <div class="contact-form-container">
+        <div class="contact-form-section">
+          <h2 class="contact-form-title">Ready to discuss your project with us?</h2>
 
-        <form class="contact-form" id="contactForm">
-          <div class="form-group" id="fullNameGroup">
-            <input type="text" class="form-input" id="fullNameInput" name="fullName" placeholder="Full Name" required>
+          <div class="contact-form-success-message" id="successMessage">
+            Thank you! Your message has been sent successfully. We'll get back to you soon.
           </div>
 
-          <div class="form-group" id="emailGroup">
-            <input type="email" class="form-input" id="emailInput" name="email" placeholder="E-mail" required>
+          <form id="contactForm" novalidate>
+            <div class="contact-form-group">
+              <input type="text" class="contact-form-input" id="fullName" placeholder="Full Name" required>
+              <div class="contact-form-error-message" id="fullNameError">Please enter your full name</div>
+            </div>
+            <div class="contact-form-group">
+              <input type="email" class="contact-form-input" id="email" placeholder="E-mail" required>
+              <div class="contact-form-error-message" id="emailError">Please enter a valid email address</div>
+            </div>
+            <div class="contact-form-group">
+              <input type="text" class="contact-form-input" id="company" placeholder="Company">
+              <div class="contact-form-error-message" id="companyError">Please enter your company name</div>
+            </div>
+            <div class="contact-form-group">
+              <input type="text" class="contact-form-input" id="project" placeholder="Project">
+              <div class="contact-form-error-message" id="projectError">Please describe your project</div>
+            </div>
+            <button type="submit" class="contact-form-submit-btn" id="submitBtn">
+              <span id="submitBtnText">Send a Message</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="contact-form-sidebar">
+          <div class="contact-form-logo-section">
+            <div class="contact-form-logo-placeholder">
+              <img src="./svg/Group 111.png" width='200px' "LOGO">
+            </div>
+            <!-- <p class="contact-form-logo-text">ADKULTURE</p> -->
           </div>
 
-          <div class="form-group" id="companyGroup">
-            <input type="text" class="form-input" id="companyInput" name="company" placeholder="Company">
+          <div class="contact-form-social-section">
+            <h3 class="contact-form-social-title">Follow Us</h3>
+            <div class="contact-form-social-icons">
+              <a href="https://www.facebook.com/adkulturein/" class="contact-form-social-icon ">
+                <span><img src="./images/footer/fb.svg" alt=""></span>
+              </a>
+              <a href="https://www.linkedin.com/company/adkulture/" class="contact-form-social-icon ">
+                <span><img src="./images/footer/in.svg" alt=""></span>
+              </a>
+              <a href="https://www.instagram.com/adkulture_official/" class="contact-form-social-icon ">
+                <span><img src="./images/footer/insta.svg" alt=""></span>
+              </a>
+              <!-- <a href="#" class="contact-form-social-icon contact-form-social-icon--linkedin">
+                <span>in</span>
+              </a>
+              <a href="#" class="contact-form-social-icon contact-form-social-icon--youtube">
+                <span>▶</span>
+              </a> -->
+            </div>
           </div>
-
-          <div class="form-group" id="projectGroup">
-            <input type="text" class="form-input" id="projectInput" name="project" placeholder="Project" required>
-          </div>
-
-          <button type="submit" class="submit-button" id="submitButton">
-            Send a Message
-          </button>
-        </form>
+        </div>
       </div>
     </section>
   </main>

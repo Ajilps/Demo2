@@ -1,237 +1,237 @@
- .footer {
-      background-color: #1a1a1a;
-      /* background-image:
+.footer {
+  background-color: #1a1a1a;
+  /* background-image:
         linear-gradient(45deg, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
         linear-gradient(-45deg, rgba(0, 255, 255, 0.1) 0%, transparent 50%); */
-      /* background-size: 100px 100px; */
-      background-position: 0 0, 50px 50px;
-      position: relative;
-      overflow: hidden;
-      padding: 3rem 2rem 2rem;
-      color: white;
-        background-image: url('../svg/HeroBackground.svg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+  /* background-size: 100px 100px; */
+  background-position: 0 0, 50px 50px;
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 2rem 2rem;
+  color: white;
+  background-image: url("../svg/HeroBackground.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-    /* Option to add custom background image */
-    /* .footer.custom-bg {
+/* Option to add custom background image */
+/* .footer.custom-bg {
       background-image: url('../svg/HeroBackground.svg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     } */
 
-    /* Dark overlay for better text readability when using background image */
-    .footer.custom-bg::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 1;
-    }
+/* Dark overlay for better text readability when using background image */
+.footer.custom-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
 
-    .footer-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
+.footer-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
 
-    .footer-left {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 
-    .footer-logo {
-      max-width: 200px;
-      height: auto;
-    }
+.footer-logo {
+  max-width: 200px;
+  height: auto;
+}
 
-    .footer-logo img {
-      width: 100%;
-      height: auto;
-      filter: brightness(2) invert(0);
-      /* Makes dark logos white */
-    }
+.footer-logo img {
+  width: 100%;
+  height: auto;
+  /* filter: brightness(2) invert(0); */
+  /* Makes dark logos white */
+}
 
-    .footer-cta {
-      margin-bottom: 1rem;
-    }
+.footer-cta {
+  margin-bottom: 1rem;
+}
 
-    .footer-cta h2 {
-      font-size: 2rem;
-      font-weight: 300;
-      color: #00bcd4;
-      margin-bottom: 0.5rem;
-    }
+.footer-cta h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #00bcd4;
+  margin-bottom: 0.5rem;
+}
 
-    .footer-email {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 1.2rem;
-      color: #888;
-      margin-bottom: 1rem;
-    }
+.footer-email {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
 
-    .footer-locations {
-      font-size: 0.9rem;
-      color: #666;
-      font-weight: 300;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+.footer-locations {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
 
-    .footer-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 1.5rem;
-    }
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
 
-    .footer-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      align-items: flex-end;
-    }
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
 
-    .footer-nav a {
-      color: #888;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
+.footer-nav a {
+  color: #888;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
 
-    .footer-nav a:hover {
-      color: #00bcd4;
-    }
+.footer-nav a:hover {
+  color: #00bcd4;
+}
 
-    .footer-social {
-      display: flex;
-      gap: 1rem;
-    }
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
 
-    .footer-social a {
-      color: #00bcd4;
-      font-size: 1.5rem;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
+.footer-social a {
+  color: #00bcd4;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
 
-    .footer-social a:hover {
-      transform: translateY(-2px);
-      color: #00e5ff;
-    }
+.footer-social a:hover {
+  transform: translateY(-2px);
+  color: #00e5ff;
+}
 
-    .footer-contact {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #888;
-      font-size: 1rem;
-    }
+.footer-contact {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #888;
+  font-size: 1rem;
+}
 
-    .footer-bottom {
-      margin-top: 2rem;
-      padding-top: 1rem;
-      border-top: 1px solid #333;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #666;
-    }
+.footer-bottom {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+}
 
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .footer {
-        padding: 2rem 1rem 1.5rem;
-      }
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 1rem 1.5rem;
+  }
 
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-      }
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
 
-      .footer-left {
-        align-items: center;
-      }
+  .footer-left {
+    align-items: center;
+  }
 
-      .footer-right {
-        align-items: center;
-      }
+  .footer-right {
+    align-items: center;
+  }
 
-      .footer-nav {
-        align-items: center;
-      }
+  .footer-nav {
+    align-items: center;
+  }
 
-      .footer-cta h2 {
-        font-size: 1.5rem;
-      }
+  .footer-cta h2 {
+    font-size: 1.5rem;
+  }
 
-      .footer-email {
-        justify-content: center;
-      }
+  .footer-email {
+    justify-content: center;
+  }
 
-      .footer-locations {
-        text-align: center;
-      }
+  .footer-locations {
+    text-align: center;
+  }
 
-      .footer-contact {
-        justify-content: center;
-      }
-    }
+  .footer-contact {
+    justify-content: center;
+  }
+}
 
-    @media (max-width: 480px) {
-      .footer {
-        padding: 1.5rem 1rem;
-      }
+@media (max-width: 480px) {
+  .footer {
+    padding: 1.5rem 1rem;
+  }
 
-      .footer-cta h2 {
-        font-size: 1.2rem;
-      }
+  .footer-cta h2 {
+    font-size: 1.2rem;
+  }
 
-      .footer-email {
-        font-size: 1rem;
-      }
+  .footer-email {
+    font-size: 1rem;
+  }
 
-      .footer-social {
-        gap: 0.8rem;
-      }
+  .footer-social {
+    gap: 0.8rem;
+  }
 
-      .footer-social a {
-        font-size: 1.3rem;
-      }
+  .footer-social a {
+    font-size: 1.3rem;
+  }
 
-      .footer-nav a {
-        font-size: 0.9rem;
-      }
-    }
+  .footer-nav a {
+    font-size: 0.9rem;
+  }
+}
 
-    /* Background image toggle utility */
-    .bg-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #00bcd4;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      z-index: 1000;
-    }
+/* Background image toggle utility */
+.bg-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #00bcd4;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  z-index: 1000;
+}
 
-    .bg-toggle:hover {
-      background: #00acc1;
-    }
+.bg-toggle:hover {
+  background: #00acc1;
+}
