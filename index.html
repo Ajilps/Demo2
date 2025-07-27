@@ -48,7 +48,9 @@
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-logo" id="navLogo">
-        <div class="logo-text"><img src="./svg/newIcon.svg" width="60px" alt=""></div>
+        <a href="#section1">
+          <div class="logo-text"><img src="./svg/newIcon.svg" width="60px" alt=""></div>
+        </a>
 
       </div>
       <!-- <a href="#" class="logo">Logo</a> -->
@@ -56,7 +58,19 @@
       <ul class="nav-links">
         <li><a href="#section1">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#section3">Services</a></li>
+        <li>
+          <div class="dropdown">
+            <button class="dropdown-button">Services &#11167;</button>
+            <div class="dropdown-options">
+
+
+              <a href="./pages/influencerMarketing.html">Influencer Marketing</a>
+              <a href="./pages/celebrityManagement.html">Celebrity Management</a>
+              <a href="./pages/eventManagement.html">Event Management</a>
+              <a href="./pages/adProduction.html">Ad Production</a>
+            </div>
+          </div>
+        </li>
         <li><a href="#timelineSection">Our approach</a></li>
 
       </ul>
@@ -695,7 +709,7 @@
     // --- SETUP SMOOTH SCROLL FOR NAV LINKS ---
     document.querySelectorAll('nav a').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+        // e.preventDefault();
         lenis.scrollTo(this.getAttribute('href'));
         // console.log(this.getAttribute("href"));
       });
