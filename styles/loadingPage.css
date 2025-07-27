@@ -154,6 +154,9 @@
     height: 120px;
     font-size: 48px;
   }
+  .loading-logo > img {
+    width: 120px;
+  }
 
   .loading-text {
     font-size: 16px;
