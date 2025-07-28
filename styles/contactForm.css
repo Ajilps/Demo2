@@ -8,6 +8,7 @@
   max-width: 900px;
   width: 100%;
   min-height: 500px;
+  position: relative;
 }
 
 .contact-form-section {
@@ -66,17 +67,26 @@
 }
 
 .contact-form-success-message {
-  background: linear-gradient(45deg, #4caf50, #45a049);
+  background: linear-gradient(45deg, #3ba33b, #49ad45);
   color: white;
   padding: 15px;
   border-radius: 10px;
   margin-bottom: 20px;
   text-align: center;
+  position: absolute;
+  /* height: 200px; */
+  display: flex;
+  margin: auto;
+
+  align-items: center;
+
+  top: 0;
   display: none;
 }
 
 .contact-form-success-message--visible {
   display: block;
+  display: flex;
 }
 
 .contact-form-submit-btn--loading {
