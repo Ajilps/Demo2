@@ -56,6 +56,9 @@ h1 {
   font-weight: var(--heading-font-weight);
   margin-bottom: 20px;
   color: var(--primary-color);
+
+  font-family: "Playfair Display", serif;
+  font-weight: 800;
 }
 h3 {
   font-size: 1.5rem;
@@ -78,6 +81,33 @@ img {
   align-items: center;
 
   margin: 10px;
+}
+
+.celebrityManagementSections > h1 {
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 20px 40px rgba(77, 76, 76, 0.288),
+    0 10px 20px rgba(102, 101, 101, 0.226);
+  transform: scale(0.96);
+  transition: all 0.4s ease;
+  opacity: 0;
+  animation: popIn 0.6s ease-out forwards;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+/* Animation: pop in */
+@keyframes popIn {
+  0% {
+    transform: scale(0.96) translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
 }
 
 /* section 2 */

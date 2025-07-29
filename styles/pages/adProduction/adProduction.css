@@ -53,7 +53,10 @@ h1 {
   font-size: var(--heading-font-size);
   font-weight: var(--heading-font-weight);
   margin-bottom: 20px;
-  color: var(--background-color);
+  /* color: var(--background-color); */
+
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
 }
 h3 {
   font-size: 1.5rem;
@@ -76,6 +79,35 @@ img {
 .content1 {
   display: flex;
   flex-direction: row;
+}
+
+.section1 > h1 {
+  /* background-color: red; */
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 20px 40px rgb(63 63 63 / 1%),
+    0px 20px 20px rgb(114 114 114 / 16%);
+  transform: scale(0.96);
+  transition: all 0.4s ease;
+  opacity: 0;
+  animation: popIn 0.6s ease-out forwards;
+  /* display: flex; */
+  /* align-items: center; */
+  /* text-align: center; */
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+/* Animation: pop in */
+@keyframes popIn {
+  0% {
+    transform: scale(0.96) translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
 }
 
 /* section 2 */
@@ -165,7 +197,7 @@ img {
     align-items: center;
   }
   h1 {
-    font-size: 1.7rem;
+    font-size: 2rem;
   }
   h2 {
     font-size: 1.3rem;
