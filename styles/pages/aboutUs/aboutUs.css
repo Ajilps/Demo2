@@ -1,9 +1,16 @@
+@font-face {
+  font-family: "HeadingFont";
+  src: url("../../../fonts/DELIRIUM_NCV.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
 :root {
   --primary-color: #0097b2;
   --secondary-color: #00bfff;
   --background-color: black;
   --text-color: white;
-  --heading-font-size: 3rem;
+  --heading-font-size: 6rem;
   --heading-font-weight: 800;
   --heading-font-color: #0097b2;
 
@@ -39,23 +46,23 @@ section {
   padding: 20px;
   color: var(--heading-font-color);
   height: 68px;
-  font-family: "Playfair Display", serif;
+
+  font-family: "HeadingFont";
+
   font-weight: 700;
   font-size: var(--heading-font-size);
 
   border-radius: 16px;
   padding: 1rem;
-  box-shadow: 0 20px 40px rgba(95, 95, 95, 0.301),
-    0 10px 20px rgba(83, 83, 83, 0.219);
+  box-shadow: 0 20px 40px rgba(46, 46, 46, 0.301),
+    0 10px 20px rgba(48, 48, 48, 0.219);
   transform: scale(0.96);
   transition: all 0.4s ease;
   opacity: 0;
   animation: popIn 0.6s ease-out forwards;
   display: flex;
   align-items: center;
-  margin: auto;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin: 10px auto;
 }
 
 /* Animation: pop in */
@@ -121,6 +128,10 @@ section {
   h1 {
     font-size: 1.7rem;
   }
+  #aboutUsHeading {
+    margin: 2rem auto;
+  }
+
   .text-section,
   .image-section {
     max-width: 100%;

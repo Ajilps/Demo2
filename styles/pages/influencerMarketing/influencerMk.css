@@ -1,11 +1,20 @@
+@font-face {
+  font-family: "HeadingFont";
+  src: url("../../../fonts/DELIRIUM_NCV.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
 :root {
   --primary-color: #0097b2;
   --background-color: black;
   --secondary-background-color: #292929;
 
-  --heading-font-size: 3rem;
+  --heading-font-size: 6rem;
+  --heading-font-size-mobile: 4rem;
   --heading-font-weight: 900;
   --heading-font-color: white;
+  --heading-font-family: "HeadingFont";
 
   --text-color: white;
   --text-font-weight: 400;
@@ -38,7 +47,7 @@ img {
   max-width: 300px;
   height: auto;
 }
-h1,
+
 h2,
 h3,
 h4,
@@ -53,7 +62,7 @@ h1 {
   font-weight: var(--heading-font-weight);
   margin-bottom: 20px;
 
-  font-family: "Playfair Display", serif;
+  font-family: var(--heading-font-family);
   font-weight: 700;
 }
 #influencerHeading {
@@ -210,7 +219,7 @@ h1 {
 
   } */
   h1 {
-    font-size: 1.6rem;
+    font-size: var(--heading-font-size-mobile);
   }
   img {
     max-width: 150px;
