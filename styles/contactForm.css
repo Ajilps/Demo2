@@ -251,6 +251,7 @@
   .contact-form-sidebar {
     flex: none;
     padding: 30px;
+    display: none;
   }
 
   .contact-form-section {
