@@ -11,15 +11,15 @@ const cardData = [
   { name: "Honey Rose", image: "./images/celebrityImages/Honey Rose.png" },
   { name: "Jyothika", image: "./images/celebrityImages/Jyothika.png" },
   { name: "Karthi", image: "./images/celebrityImages/karthi.png" },
-  { name: "Madhuri", image: "./images/celebrityImages/Madhuri.png" },
+  { name: "Madhuri Dixit", image: "./images/celebrityImages/Madhuri.png" },
   {
     name: "Mamitha Baiju",
     image: "./images/celebrityImages/Mamitha Baiju.png",
   },
-  { name: "Mohan lal", image: "./images/celebrityImages/Mohan lal.png" },
-  { name: "Nazria", image: "./images/celebrityImages/Nazria.png" },
+  { name: "Mohan Lal", image: "./images/celebrityImages/Mohan lal.png" },
+  { name: "Nazriya ", image: "./images/celebrityImages/Nazria.png" },
   { name: "Nivin Pauly", image: "./images/celebrityImages/Nivin Pauly.png" },
-  { name: "Saamantha", image: "./images/celebrityImages/Saamantha.png" },
+  { name: "Samantha", image: "./images/celebrityImages/Saamantha.png" },
   { name: "Sanjay Dutt", image: "./images/celebrityImages/Sanjay Dutt.png" },
   { name: "Shiju Wilson", image: "./images/celebrityImages/Shiju Wilson.png" },
   {
@@ -28,7 +28,7 @@ const cardData = [
   },
   { name: "Soori", image: "./images/celebrityImages/Soori.png" },
   { name: "Tamannaah", image: "./images/celebrityImages/tamannath.png" },
-  { name: "Tovino", image: "./images/celebrityImages/Tovino.png" },
+  { name: "Tovino Thomas", image: "./images/celebrityImages/Tovino.png" },
 ];
 
 let currentIndex = 0;
