@@ -12,7 +12,7 @@
 
   --heading-font-size: 6rem;
   --heading-font-size-mobile: 4rem;
-  --heading-font-weight: 900;
+  --heading-font-weight: 700;
   --heading-font-color: white;
   --heading-font-family: "HeadingFont";
 
@@ -58,18 +58,18 @@ span {
   margin-bottom: 10px;
 }
 h1 {
-  font-size: var(--heading-font-size);
-  font-weight: var(--heading-font-weight);
-  margin-bottom: 20px;
+  font: italic var(--heading-font-weight) 4rem "Fira Sans", sans-serif;
 
-  font-family: var(--heading-font-family);
-  font-weight: 700;
+  font: var(--heading-font-weight) var(--heading-font-size)
+    var(--heading-font-family);
+  letter-spacing: 0.5rem;
+  margin-bottom: 20px;
 }
 #influencerHeading {
   border-radius: 16px;
   padding: 1rem;
-  box-shadow: 0 20px 40px rgb(63 63 63 / 1%),
-    0px 20px 20px rgb(114 114 114 / 16%);
+  /* box-shadow: 0 20px 40px rgb(63 63 63 / 1%),
+    0px 20px 20px rgb(114 114 114 / 16%); */
   transform: scale(0.96);
   transition: all 0.4s ease;
   opacity: 0;
