@@ -220,6 +220,7 @@ h1 {
   } */
   h1 {
     font-size: var(--heading-font-size-mobile);
+    letter-spacing: 1px;
   }
   img {
     max-width: 150px;

@@ -10,9 +10,10 @@
   --background-color: black;
   --secondary-background-color: #2b2b2b;
 
-  --heading-font-size: 5rem;
+  --heading-font-size: 6rem;
   --heading-font-weight: 900;
   --heading-font-color: rgb(0, 0, 0);
+  --heading-font-family: "HeadingFont";
 
   --text-color: white;
   --text-font-weight: 400;
@@ -57,14 +58,13 @@ span {
   /* margin-bottom: 10px; */
 }
 h1 {
-  font-size: var(--heading-font-size);
-  font-weight: var(--heading-font-weight);
-  color: var(--heading-font-color);
-  /* margin-bottom: 20px; */
-  /* color: var(--background-color); */
+  font: italic var(--heading-font-weight) 4rem "Fira Sans", sans-serif;
 
-  font-family: "HeadingFont";
-  font-weight: 700;
+  font: var(--heading-font-weight) var(--heading-font-size)
+    var(--heading-font-family);
+  letter-spacing: 0.5rem;
+  color: var(--heading-font-color);
+  margin-bottom: 20px;
 }
 h3 {
   font-size: 1.5rem;
@@ -97,8 +97,8 @@ img {
 
   border-radius: 16px;
 
-  box-shadow: 0 20px 40px rgb(63 63 63 / 1%),
-    0px 20px 20px rgb(114 114 114 / 16%);
+  /* box-shadow: 0 20px 40px rgb(63 63 63 / 1%),
+    0px 20px 20px rgb(114 114 114 / 16%); */
   transform: scale(0.96);
   transition: all 0.4s ease;
   opacity: 0;
@@ -204,7 +204,7 @@ img {
     align-items: center;
   }
   h1 {
-    font-size: 6rem;
+    font-size: 5rem;
   }
   h2 {
     font-size: 1.3rem;

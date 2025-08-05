@@ -59,12 +59,12 @@ span {
   /* margin-bottom: 10px; */
 }
 h1 {
-  font-size: var(--heading-font-size);
-  font-weight: var(--heading-font-weight);
+  font: italic var(--heading-font-weight) 4rem "Fira Sans", sans-serif;
+
+  font: var(--heading-font-weight) var(--heading-font-size)
+    var(--heading-font-family);
+  letter-spacing: 0.5rem;
   margin-bottom: 20px;
-  color: var(--primary-color);
-  font-family: var(--heading-font-family);
-  font-weight: 700;
 }
 h3 {
   font-size: 1.5rem;
@@ -90,8 +90,8 @@ img {
   /* background-color: red; */
   border-radius: 16px;
   padding: 1rem;
-  box-shadow: 0 20px 40px rgba(63, 63, 63, 0.322),
-    0 10px 20px rgba(100, 100, 100, 0.26);
+  /* box-shadow: 0 20px 40px rgba(63, 63, 63, 0.322),
+    0 10px 20px rgba(100, 100, 100, 0.26); */
   transform: scale(0.96);
   transition: all 0.4s ease;
   opacity: 0;
@@ -217,6 +217,7 @@ img {
   }
   h1 {
     font-size: var(--heading-font-size-mobile);
+    letter-spacing: 0.2px;
   }
   h3 {
     font-size: 1.1rem;
