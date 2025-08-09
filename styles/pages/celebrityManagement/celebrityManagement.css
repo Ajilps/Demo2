@@ -161,6 +161,11 @@ img {
   text-align: start;
 }
 
+/* infoContainer3 */
+.infoContainer3 > ul > li > p {
+  text-align: left;
+}
+
 /* section 4 */
 .CelebritySection4 {
   max-width: 800px;
@@ -231,6 +236,10 @@ img {
   .industry-cards {
     flex-direction: column;
     flex-wrap: wrap;
+  }
+  /* infoContainer3 */
+  .infoContainer3 p {
+    text-align: left;
   }
 
   .card-column-2 {
